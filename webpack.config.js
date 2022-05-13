@@ -38,10 +38,28 @@ const config = (env) => {
           loader: 'ts-loader',
           exclude: /node_modules/,
         },
+        {
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     resolve: {
       extensions: ['.js', '.jsx', '.tsx', '.ts'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@layouts': path.resolve(__dirname, 'src/layouts'),
+        '@themes': path.resolve(__dirname, 'src/themes'),
+        '@types': path.resolve(__dirname, 'src/types'),
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({
