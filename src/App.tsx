@@ -1,7 +1,7 @@
-import Typography from '@mui/material/Typography';
+import Layouts from '@layouts';
 
 const App = () => {
-  return <Typography variant="h1">Welcome to VS Code Clone</Typography>;
+  return <Layouts />;
 };
 
 export default App;
