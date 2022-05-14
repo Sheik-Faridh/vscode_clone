@@ -3,17 +3,38 @@
     "common": {
       "white": "#ffffff",
       "black": "#000000"
+    },
+    "primary": {
+      "main": "#007acc"
+    },
+    "background": {
+      "paper": "#1e1e1e",
+      "default": "#1e1e1e"
     }
   },
   "mixins": {
     "toolbar": {
-      "background": "#333333",
+      "background": "#404040",
       "minHeight": "40px",
       "@media (min-width:0px) and (orientation: landscape)": {
         "minHeight": "40px"
       },
       "@media (min-width:600px)": {
         "minHeight": "40px"
+      }
+    },
+    "footer": {
+      "height": "30px",
+      "background": "#007acc"
+    },
+    "sidebar": {
+      "width": "56px",
+      "background": "#333333"
+    },
+    "icon": {
+      "background": {
+        "default": "#bbbbbb",
+        "selected": "#ffffff"
       }
     }
   }

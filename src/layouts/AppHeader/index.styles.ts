@@ -3,6 +3,8 @@ export default ({ ...props }) => {
   return `
     & .MuiToolbar-root.MuiToolbar-gutters {
       justify-content: space-between;
+      padding-left: 8px;
+      padding-right: 8px;
       & > .MuiBox-root {
         flex-basis: 100%;
         display: flex;
@@ -21,7 +23,7 @@ export default ({ ...props }) => {
           justify-content: flex-end;
         }
         & button.MuiButtonBase-root.MuiIconButton-root {
-          & > span.material-icons {
+          & > svg {
             color: ${palette.common.white};
           }
         }
