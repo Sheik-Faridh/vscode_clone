@@ -44,9 +44,10 @@
       "background": "#252526"
     },
     "accordion": {
+      "border": "#6e6565",
       "summary": {
         "minHeight": "30px",
-        "background": "#373737"
+        "background": "#252526"
       }
     }
   }
