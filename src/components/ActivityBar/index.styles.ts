@@ -5,8 +5,8 @@ export default ({ ...props }) => {
     flex-flow: column;
     justify-content: space-between;
     height: 100%;
-    width: ${mixins.sidebar.width};
-    background: ${mixins.sidebar.background};
+    width: ${mixins.activitybar.width};
+    background: ${mixins.activitybar.background};
     & div.MuiBox-root {
       & ul.MuiList-root {
         padding: 0;

@@ -19,6 +19,7 @@
       "@components/*": ["components/*"],
       "@layouts": ["layouts"],
       "@layouts/*": ["layouts/*"],
+      "@hooks": ["hooks"],
       "@themes": ["themes"],
       "@types/*": ["types/*"]
     }

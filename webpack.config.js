@@ -57,6 +57,7 @@ const config = (env) => {
         '@assets': path.resolve(__dirname, 'src/assets'),
         '@components': path.resolve(__dirname, 'src/components'),
         '@layouts': path.resolve(__dirname, 'src/layouts'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
         '@themes': path.resolve(__dirname, 'src/themes'),
         '@types': path.resolve(__dirname, 'src/types'),
       },

@@ -7,6 +7,9 @@
     "primary": {
       "main": "#007acc"
     },
+    "grey": {
+      "A900": "#bbbbbb"
+    },
     "background": {
       "paper": "#1e1e1e",
       "default": "#1e1e1e"
@@ -27,7 +30,7 @@
       "height": "30px",
       "background": "#007acc"
     },
-    "sidebar": {
+    "activitybar": {
       "width": "56px",
       "background": "#333333"
     },
@@ -35,6 +38,15 @@
       "background": {
         "default": "#bbbbbb",
         "selected": "#ffffff"
+      }
+    },
+    "sidebar": {
+      "background": "#252526"
+    },
+    "accordion": {
+      "summary": {
+        "minHeight": "30px",
+        "background": "#373737"
       }
     }
   }
