@@ -1,12 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
-import { VscEllipsis } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import SideBarAccordions from '@components/SideBarAccordions';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
+import Explorer from '@components/Explorer';
+import { SideBarStore } from '@store';
+import { Activity } from '@/models';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -15,20 +13,22 @@ const Container = styled(Box)`
 
 const SideBar = () => {
   const ref = useRef<Element>();
+  const [activity, setActivity] = useState<Activity>(SideBarStore.activity);
+
+  useEffect(() => {
+    const sub = SideBarStore.subject.subscribe((v) => {
+      setActivity(v.activity);
+    });
+
+    return () => {
+      sub.unsubscribe();
+    };
+  }, []);
+
   return (
     <Container ref={ref}>
-      <Drawer variant="temporary" anchor="left" open={true} container={ref.current}>
-        <Box className="header">
-          <Tooltip title="Explorer" placement="bottom">
-            <Typography variant="caption">Explorer</Typography>
-          </Tooltip>
-          <Tooltip title="Views and more Actions...">
-            <IconButton size="small">
-              <VscEllipsis />
-            </IconButton>
-          </Tooltip>
-        </Box>
-        <SideBarAccordions />
+      <Drawer variant="temporary" anchor="left" open={true} container={ref.current} transitionDuration={0}>
+        {activity === 'Explorer' && <Explorer />}
       </Drawer>
     </Container>
   );

@@ -11,7 +11,7 @@ const Container = styled(Box)`
   ${containerStyles}
 `;
 
-const SideBarAccordions = () => {
+const ExplorerAccordions = () => {
   return (
     <Container>
       <OpenEditors />
@@ -23,4 +23,4 @@ const SideBarAccordions = () => {
   );
 };
 
-export default SideBarAccordions;
+export default ExplorerAccordions;

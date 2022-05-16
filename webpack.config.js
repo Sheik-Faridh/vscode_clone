@@ -60,6 +60,9 @@ const config = (env) => {
         '@hooks': path.resolve(__dirname, 'src/hooks'),
         '@themes': path.resolve(__dirname, 'src/themes'),
         '@types': path.resolve(__dirname, 'src/types'),
+        '@store': path.resolve(__dirname, 'src/store'),
+        '@models': path.resolve(__dirname, 'src/models'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
       },
     },
     plugins: [

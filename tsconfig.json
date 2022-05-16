@@ -21,7 +21,10 @@
       "@layouts/*": ["layouts/*"],
       "@hooks": ["hooks"],
       "@themes": ["themes"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@store": ["store"],
+      "@models": ["models"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["./src/**/*"],
