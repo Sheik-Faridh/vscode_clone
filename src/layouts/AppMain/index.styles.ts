@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { mixins } = props.theme;
+  const { mixins, palette } = props.theme;
   return `
     display: flex;
     height: calc(100vh - ${mixins.toolbar.minHeight} - ${mixins.footer.height});
@@ -8,12 +8,13 @@ export default ({ ...props }) => {
       height: 100%;
       box-shadow: none;
       & .custom-gutter-horizontal {
-        padding: 0 1.5px;
+        z-index: 2;
+        padding: 0 1px;
         &:hover {
-          background-color: ${mixins.toolbar.background};
+          background-color: ${palette.primary.main};
         }
         & > .__dbk__dragger.Dark {
-          width: 1.5px;
+          width: 1px;
           background: transparent;
         }
       }

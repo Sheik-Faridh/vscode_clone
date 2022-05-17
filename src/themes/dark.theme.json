@@ -8,7 +8,8 @@
       "main": "#007acc"
     },
     "grey": {
-      "A900": "#bbbbbb"
+      "A900": "#bbbbbb",
+      "A1000": "#6e6565"
     },
     "background": {
       "paper": "#1e1e1e",
@@ -44,7 +45,6 @@
       "background": "#252526"
     },
     "accordion": {
-      "border": "#6e6565",
       "summary": {
         "minHeight": "30px",
         "background": "#252526"

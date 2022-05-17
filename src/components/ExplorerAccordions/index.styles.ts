@@ -3,7 +3,7 @@ export default ({ ...props }) => {
   return `
     .MuiAccordion-root {
       box-shadow: none;
-      border-bottom: 1px solid ${mixins.accordion.border};
+      border-bottom: 1px solid ${palette.grey.A1000};
       &:last-child {
         border-bottom: none;
       }
