@@ -11,9 +11,10 @@ export default class EditorStore {
 
   static openFile(id: string) {
     const currentValue = this._subject.value;
+    const newFileList = currentValue.openFiles.includes(id) ? currentValue.openFiles : [...currentValue.openFiles, id];
     this._subject.next({
       ...currentValue,
-      openFiles: [...currentValue.openFiles, id],
+      openFiles: newFileList,
       active: id,
     });
   }

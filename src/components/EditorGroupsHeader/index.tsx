@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import { VscGitCompare, VscEllipsis, VscSplitHorizontal } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import OpenFileList from '@components/OpenFileList';
 import Tooltip from '@mui/material/Tooltip';
 import containerStyles from './index.styles';
 
@@ -12,7 +13,7 @@ const Container = styled(Box)`
 const EditorGroupsHeader = () => {
   return (
     <Container>
-      <Box></Box>
+      <OpenFileList />
       <Box className="icon-wrapper">
         <Tooltip title="Open Changes" placement="bottom">
           <IconButton size="small">

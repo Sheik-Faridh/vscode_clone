@@ -25,7 +25,8 @@
       "@store": ["store"],
       "@models": ["models"],
       "@utils/*": ["utils/*"],
-      "@api/*": ["api/*"]
+      "@api/*": ["api/*"],
+      "@hoc/*": ["hoc/*"]
     }
   },
   "include": ["./src/**/*"],

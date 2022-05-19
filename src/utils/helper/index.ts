@@ -1,3 +1,4 @@
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { Tree, FileData } from '@models';
 import GithubService from '@api/services/github.service';
 
@@ -42,4 +43,9 @@ export const sortTreeView = (fileList: Partial<FileData>[]) => {
   const folders = fileList.filter((f) => f.type === 'tree');
   const files = fileList.filter((f) => f.type === 'blob');
   return [...folders, ...files];
+};
+
+export const getLanguageId = (languages: monaco.languages.ILanguageExtensionPoint[], extension: string) => {
+  const match = languages.find((l) => l.extensions?.includes(extension));
+  return match?.id ? match.id : extension === '.prettierrc' ? 'json' : 'plaintext';
 };
