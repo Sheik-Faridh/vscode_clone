@@ -1,11 +1,30 @@
-import MonacoEditor, { useMonaco } from '@monaco-editor/react';
+import MonacoEditor from '@monaco-editor/react';
+
+const code = `
+import React, { PureComponent } from 'react';
+import MonacoEditor from '@uiw/react-monacoeditor';
+
+export default class App extends PureComponent {
+  render() {
+    return (
+      <MonacoEditor
+        language="html"
+        value="<h1>I ♥ react-codemirror2</h1>"
+        options={{
+          selectOnLineNumbers: true,
+          roundedSelection: false,
+          cursorStyle: 'line',
+          automaticLayout: false,
+          theme: 'vs-dark',
+        }}
+      />
+    );
+  }
+}
+`;
 
 const Editor = () => {
-  const monaco = useMonaco();
-
-  return (
-    <MonacoEditor height="100%" defaultLanguage="typescript" defaultValue="//Write your code here" theme="vs-dark" />
-  );
+  return <MonacoEditor value={code} language="javascript" theme="vs-dark" options={{ readOnly: false }} />;
 };
 
 export default Editor;

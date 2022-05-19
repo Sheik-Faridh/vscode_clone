@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./build/",
     "lib": ["es6", "dom"],
-    "typeRoots": ["src/types"],
+    "typeRoots": ["src/types", "node_modules/@types"],
     "sourceMap": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -13,8 +13,8 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
+    "types": ["node"],
     "paths": {
-      "@/*": ["*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@layouts": ["layouts"],
@@ -24,7 +24,8 @@
       "@types/*": ["types/*"],
       "@store": ["store"],
       "@models": ["models"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api/*"]
     }
   },
   "include": ["./src/**/*"],

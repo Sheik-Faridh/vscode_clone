@@ -1,10 +1,9 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Explorer from '@components/Explorer';
 import { SideBarStore } from '@store';
-import { Activity } from '@/models';
+import { Activity } from '@models';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -12,7 +11,6 @@ const Container = styled(Box)`
 `;
 
 const SideBar = () => {
-  const ref = useRef<Element>();
   const [activity, setActivity] = useState<Activity>(SideBarStore.activity);
 
   useEffect(() => {
@@ -25,13 +23,7 @@ const SideBar = () => {
     };
   }, []);
 
-  return (
-    <Container ref={ref}>
-      <Drawer variant="temporary" anchor="left" open={true} container={ref.current} transitionDuration={0}>
-        {activity === 'Explorer' && <Explorer />}
-      </Drawer>
-    </Container>
-  );
+  return <Container>{activity === 'Explorer' && <Explorer />}</Container>;
 };
 
 export default SideBar;

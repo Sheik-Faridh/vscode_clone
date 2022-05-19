@@ -16,3 +16,20 @@ export type SettingWithIcon = {
   name: ActivitySetting;
   icon: JSX.Element;
 };
+
+export type Tree = {
+  path: string;
+  mode: string;
+  sha: string;
+  size: number;
+  url: string;
+  type: 'blob' | 'file';
+};
+
+export type File = {
+  path: string;
+  sha: string;
+  size: number;
+  name: string;
+  parent: null | string;
+};

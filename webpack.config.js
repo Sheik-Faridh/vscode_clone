@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const config = (env) => {
   return {
@@ -53,7 +54,6 @@ const config = (env) => {
       extensions: ['.js', '.jsx', '.tsx', '.ts'],
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       alias: {
-        '@': path.resolve(__dirname, 'src'),
         '@assets': path.resolve(__dirname, 'src/assets'),
         '@components': path.resolve(__dirname, 'src/components'),
         '@layouts': path.resolve(__dirname, 'src/layouts'),
@@ -63,6 +63,7 @@ const config = (env) => {
         '@store': path.resolve(__dirname, 'src/store'),
         '@models': path.resolve(__dirname, 'src/models'),
         '@utils': path.resolve(__dirname, 'src/utils'),
+        '@api': path.resolve(__dirname, 'src/api'),
       },
     },
     plugins: [
@@ -75,6 +76,10 @@ const config = (env) => {
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin(),
+      new Dotenv({
+        path: './.env',
+        safe: true,
+      }),
     ],
     optimization: {
       runtimeChunk: 'single',
