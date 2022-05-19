@@ -15,4 +15,4 @@ root.render(
   </ThemeWrapper>,
 );
 
-//FileExplorerStore.init();
+FileExplorerStore.init();

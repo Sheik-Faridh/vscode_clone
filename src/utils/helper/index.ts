@@ -1,4 +1,4 @@
-import { Tree, File } from '@models';
+import { Tree, FileData } from '@models';
 import GithubService from '@api/services/github.service';
 
 export const getFileList = (tree: Tree[]) => {
@@ -14,7 +14,7 @@ export const getFileList = (tree: Tree[]) => {
       const parentFolder = tree.find((f) => f.path === parentRelativePath);
       parent = parentFolder?.sha ?? null;
     }
-    const data: Partial<File> = { sha: file.sha, path: file.path, parent, name };
+    const data: Partial<FileData> = { sha: file.sha, path: file.path, parent, name, type: file.type };
     if (file.size) data.size = file.size;
     fileList.push(data);
   }
@@ -36,4 +36,10 @@ export const getAllFilesContent = async (tree: Tree[]) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const sortTreeView = (fileList: Partial<FileData>[]) => {
+  const folders = fileList.filter((f) => f.type === 'tree');
+  const files = fileList.filter((f) => f.type === 'blob');
+  return [...folders, ...files];
 };

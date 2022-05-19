@@ -17,19 +17,29 @@ export type SettingWithIcon = {
   icon: JSX.Element;
 };
 
+export type FileType = 'blob' | 'tree';
+
 export type Tree = {
   path: string;
   mode: string;
   sha: string;
   size: number;
   url: string;
-  type: 'blob' | 'file';
+  type: FileType;
 };
 
-export type File = {
-  path: string;
-  sha: string;
-  size: number;
+export interface FileData extends Omit<Tree, 'mode' | 'url'> {
   name: string;
   parent: null | string;
+}
+
+export type FileExplorerState = {
+  isFetching: boolean;
+  contents: Record<string, string>;
+  files: Partial<FileData>[];
+};
+
+export type EditorState = {
+  openFiles: string[];
+  active: string;
 };

@@ -14,13 +14,11 @@ const SideBar = () => {
   const [activity, setActivity] = useState<Activity>(SideBarStore.activity);
 
   useEffect(() => {
-    const sub = SideBarStore.subject.subscribe((v) => {
+    const store = SideBarStore.subject.subscribe((v) => {
       setActivity(v.activity);
     });
 
-    return () => {
-      sub.unsubscribe();
-    };
+    return () => store.unsubscribe();
   }, []);
 
   return <Container>{activity === 'Explorer' && <Explorer />}</Container>;

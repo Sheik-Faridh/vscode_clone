@@ -3,6 +3,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Box from '@mui/material/Box';
+import FolderTree from '@components/FolderTree';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -38,7 +39,7 @@ const FolderView = () => {
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>Not Implemented yet</Typography>
+        <FolderTree />
       </AccordionDetails>
     </Accordion>
   );
