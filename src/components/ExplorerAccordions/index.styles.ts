@@ -28,6 +28,10 @@ export default ({ ...props }) => {
             font-size: 0.775rem;
             text-transform: uppercase;
             color: ${palette.common.white};
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            flex: 1;
           }
           & div.MuiBox-root {
             display: none;

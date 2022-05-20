@@ -33,6 +33,7 @@ const AppMain = () => {
           direction={SplitDirection.Horizontal}
           initialSizes={showSideBar ? [20, 80] : [0, 100]}
           gutterClassName="custom-gutter-horizontal"
+          minWidths={[200, 200]}
         >
           <SideBar />
           <EditorGroups />

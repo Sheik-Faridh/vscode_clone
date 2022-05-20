@@ -14,7 +14,7 @@ const FolderView = () => {
   return (
     <Accordion expanded={expanded} onChange={handleChange} disableGutters square>
       <AccordionSummary expandIcon={<VscChevronRight />}>
-        <Typography variant="body2">VSCode_clone</Typography>
+        <Typography variant="body2">{process.env.REPO}</Typography>
         <Box>
           <Tooltip title="New Untitled File" placement="bottom">
             <IconButton size="small">

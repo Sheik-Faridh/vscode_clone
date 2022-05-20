@@ -14,9 +14,10 @@ export default ({ ...props }) => {
                     line-height: 1;
                     padding: 8px 16px;
 
-                    & span .MuiButtonBase-root.MuiIconButton-root {
-                        padding: 0;
-                        margin-left: 10px;
+                    & .MuiButtonBase-root.MuiIconButton-root {
+                        padding: 1px;
+                        border-radius: 1px;
+                        margin: 0;
                         & svg {
                             visibility: hidden;
                             color: ${palette.grey[100]};
@@ -30,11 +31,14 @@ export default ({ ...props }) => {
 
                     &:hover,
                     &:focus {
-                        & span .MuiButtonBase-root.MuiIconButton-root svg {
+                        & .MuiButtonBase-root.MuiIconButton-root svg {
                             visibility: visible;
                         }
                     }
                 }
+            }
+            & .MuiTabScrollButton-root {
+                color: ${palette.grey[100]};
             }
             & .MuiTabs-indicator {
                 height: 0;

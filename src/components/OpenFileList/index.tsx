@@ -29,27 +29,34 @@ const OpenFileList = () => {
     return () => store.unsubscribe();
   }, []);
 
-  const handleClick = (id: string) => () => {
+  const handleClose = (id: string) => () => {
     EditorStore.closeFile(id);
+  };
+
+  const handleActive = (id: string) => () => {
+    EditorStore.setActive(id);
   };
 
   return (
     <Container>
-      <Tabs value={active}>
+      <Tabs value={active} variant="scrollable" scrollButtons="auto">
         {openFiles.map((f) => (
           <Tab
             key={f.sha}
             value={f.sha}
+            onClick={handleActive(f.sha)}
             label={
-              <span>
+              <>
+                <FileIcon name={f.name} />
                 {f.name}
-                {/* <IconButton size="small" onClick={handleClick(f.sha)}>
-                  <VscClose />
-                </IconButton> */}
-              </span>
+              </>
             }
-            icon={<FileIcon name={f.name} />}
-            iconPosition="start"
+            icon={
+              <IconButton size="small" onClick={handleClose(f.sha)}>
+                <VscClose />
+              </IconButton>
+            }
+            iconPosition="end"
           />
         ))}
       </Tabs>

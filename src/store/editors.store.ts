@@ -19,6 +19,14 @@ export default class EditorStore {
     });
   }
 
+  static setActive(activeId: string) {
+    const currentValue = this._subject.value;
+    this._subject.next({
+      ...currentValue,
+      active: activeId,
+    });
+  }
+
   static closeFile(id: string) {
     const currentValue = this._subject.value;
     const newFileList = currentValue.openFiles.filter((file) => file !== id);

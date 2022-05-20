@@ -38,7 +38,9 @@ const OpenEditors = () => {
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>Not Implemented yet</Typography>
+        <Box className="not-found-info-wrapper">
+          <Typography variant="body2">There is no open files</Typography>
+        </Box>
       </AccordionDetails>
     </Accordion>
   );

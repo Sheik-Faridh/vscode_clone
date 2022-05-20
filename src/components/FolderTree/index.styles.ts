@@ -11,6 +11,9 @@ export default ({ ...props }) => {
     },
     '& div.MuiTreeItem-label': {
       fontSize: '0.9rem',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
     },
   };
 };
