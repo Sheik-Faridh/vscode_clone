@@ -3,7 +3,7 @@ export default ({ ...props }) => {
   return `
     display: flex;
     height: calc(100vh - ${mixins.toolbar.minHeight} - ${mixins.footer.height});
-    & main.MuiPaper-root {
+    & > div.MuiPaper-root {
       width: calc(100% - ${mixins.activitybar.width});
       height: 100%;
       box-shadow: none;

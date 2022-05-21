@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import ActivityBar from '@components/ActivityBar';
 import EditorGroups from '@components/EditorGroups';
-import Paper from '@mui/material/Paper';
+import Paper, { PaperProps } from '@mui/material/Paper';
 import SideBar from '@components/SideBar';
 import Splitter, { SplitDirection } from '@devbookhq/splitter';
 import { SideBarStore } from '@store';
 import paperStyles from './index.styles';
 
-const Main = styled(Paper)`
+interface MainProps extends PaperProps {
+  component?: React.ElementType;
+}
+
+const Main: React.FC<MainProps> = styled(Paper)`
   ${paperStyles}
 `;
 
@@ -26,9 +30,9 @@ const AppMain = () => {
   }, []);
 
   return (
-    <Main>
+    <Main component="main">
       <ActivityBar />
-      <Paper component="main">
+      <Paper>
         <Splitter
           direction={SplitDirection.Horizontal}
           initialSizes={showSideBar ? [20, 80] : [0, 100]}
