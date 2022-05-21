@@ -18,6 +18,10 @@ export default ({ ...props }) => {
           background: transparent;
         }
       }
+      & .Vertical .__dbk__child-wrapper svg {
+        width: 30%;
+        height: 30%;
+      }
     }
   `;
 };

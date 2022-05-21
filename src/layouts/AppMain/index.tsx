@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import ActivityBar from '@components/ActivityBar';
 import EditorGroups from '@components/EditorGroups';
 import Paper, { PaperProps } from '@mui/material/Paper';
+import Panel from '@components/Panel';
 import SideBar from '@components/SideBar';
 import Splitter, { SplitDirection } from '@devbookhq/splitter';
 import { SideBarStore } from '@store';
@@ -40,7 +41,15 @@ const AppMain = () => {
           minWidths={[200, 200]}
         >
           <SideBar />
-          <EditorGroups />
+          <Splitter
+            direction={SplitDirection.Vertical}
+            initialSizes={[100, 0]}
+            gutterClassName="custom-gutter-horizontal"
+            minHeights={[0, 0]}
+          >
+            <EditorGroups />
+            <Panel />
+          </Splitter>
         </Splitter>
       </Paper>
     </Main>

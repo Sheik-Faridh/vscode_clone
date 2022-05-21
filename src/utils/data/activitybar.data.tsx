@@ -8,7 +8,6 @@ import {
   VscSettingsGear,
 } from 'react-icons/vsc';
 import { FaDocker } from 'react-icons/fa';
-import { ImGit } from 'react-icons/im';
 import { ActivityWithIcon, SettingWithIcon } from '@models';
 
 export const activityList: ActivityWithIcon[] = [
@@ -31,10 +30,6 @@ export const activityList: ActivityWithIcon[] = [
   {
     name: 'Extensions',
     icon: <VscExtensions />,
-  },
-  {
-    name: 'Gitlens',
-    icon: <ImGit />,
   },
   {
     name: 'Docker',
