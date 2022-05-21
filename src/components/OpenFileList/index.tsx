@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import { VscClose } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import FileIcon from '@components/FileIcon';
-import IconButton from '@mui/material/IconButton';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { EditorStore, FileExplorerStore } from '@store';
@@ -29,7 +28,8 @@ const OpenFileList = () => {
     return () => store.unsubscribe();
   }, []);
 
-  const handleClose = (id: string) => () => {
+  const handleClose = (id: string) => (event: React.MouseEvent<HTMLSpanElement>) => {
+    event.stopPropagation();
     EditorStore.closeFile(id);
   };
 
@@ -52,9 +52,9 @@ const OpenFileList = () => {
               </>
             }
             icon={
-              <IconButton size="small" onClick={handleClose(f.sha)}>
+              <span onClick={handleClose(f.sha)}>
                 <VscClose />
-              </IconButton>
+              </span>
             }
             iconPosition="end"
           />
