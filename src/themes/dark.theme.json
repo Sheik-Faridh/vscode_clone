@@ -49,6 +49,15 @@
         "minHeight": "30px",
         "background": "#252526"
       }
+    },
+    "contextMenu": {
+      "background": "#252526",
+      "fontColor": {
+        "primary": "#B7B7B7",
+        "secondary": "#A5A5A5"
+      },
+      "hover": "#0F4771",
+      "divider": "#4B4B4C"
     }
   }
 }

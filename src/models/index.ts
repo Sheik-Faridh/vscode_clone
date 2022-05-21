@@ -43,3 +43,12 @@ export type EditorState = {
   openFiles: string[];
   active: string;
 };
+
+export type ToolBarMenuList = {
+  name: string;
+  shortcut?: string;
+};
+
+export type ToolBarData = {
+  [key: string]: Array<ToolBarMenuList[]>;
+};
