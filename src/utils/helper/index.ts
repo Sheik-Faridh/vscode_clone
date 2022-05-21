@@ -49,3 +49,34 @@ export const getLanguageId = (languages: monaco.languages.ILanguageExtensionPoin
   const match = languages.find((l) => l.extensions?.includes(extension));
   return match?.id ? match.id : extension === '.prettierrc' ? 'json' : 'plaintext';
 };
+
+export const fullScreenService = {
+  get doc() {
+    return <FullScreenDocument>document;
+  },
+  enter() {
+    const el = this.doc.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.msRequestFullscreen) el.msRequestFullscreen();
+    else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  },
+  leave() {
+    if (this.doc.exitFullscreen) this.doc.exitFullscreen();
+    else if (this.doc.msExitFullscreen) this.doc.msExitFullscreen();
+    else if (this.doc.mozCancelFullScreen) this.doc.mozCancelFullScreen();
+    else if (this.doc.webkitExitFullscreen) this.doc.webkitExitFullscreen();
+  },
+  toggle() {
+    if (this.enabled) this.leave();
+    else this.enter();
+  },
+  get enabled() {
+    return !!(
+      this.doc.fullscreenElement ||
+      this.doc.mozFullScreenElement ||
+      this.doc.webkitFullscreenElement ||
+      this.doc.msFullscreenElement
+    );
+  },
+};
