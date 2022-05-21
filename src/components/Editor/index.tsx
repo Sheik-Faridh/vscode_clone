@@ -1,6 +1,5 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import MonacoEditor, { useMonaco } from '@monaco-editor/react';
-import renderEditor from 'hoc/renderEditor.hoc';
 import { EditorStore, FileExplorerStore } from '@store';
 import { FileData } from '@models';
 import { getLanguageId } from '@utils/helper';
@@ -45,4 +44,4 @@ const Editor = () => {
   return <MonacoEditor value={code} defaultLanguage="javascript" theme="vs-dark" />;
 };
 
-export default renderEditor(Editor);
+export default Editor;

@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Editor from '@components/Editor';
 import EditorGroupsHeader from '@components/EditorGroupsHeader';
+import renderEditor from '@hoc/renderEditor.hoc';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -19,4 +20,4 @@ const EditorGroups = () => {
   );
 };
 
-export default EditorGroups;
+export default renderEditor(EditorGroups);

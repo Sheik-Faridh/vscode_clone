@@ -1,7 +1,8 @@
 import { EditorStore } from '@store';
 import { ComponentType, useEffect, useState } from 'react';
+import LogoPaper from '@components/LogoPaper';
 
-const renderEditor = (Editor: ComponentType) => {
+const renderEditor = (Editors: ComponentType) => {
   const HOC = () => {
     const [show, setShow] = useState(false);
 
@@ -13,7 +14,7 @@ const renderEditor = (Editor: ComponentType) => {
       return () => store.unsubscribe();
     }, []);
 
-    return show && <Editor />;
+    return show ? <Editors /> : <LogoPaper />;
   };
 
   return HOC;
