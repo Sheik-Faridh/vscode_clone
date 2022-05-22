@@ -58,6 +58,13 @@
       },
       "hover": "#0F4771",
       "divider": "#4B4B4C"
+    },
+    "panel": {
+      "tab": {
+        "fontColor": "#858585",
+        "selected": "#B1B1B1",
+        "active": "#333333"
+      }
     }
   }
 }

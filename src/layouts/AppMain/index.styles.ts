@@ -18,6 +18,19 @@ export default ({ ...props }) => {
           background: transparent;
         }
       }
+      & .custom-gutter-vertical {
+        z-index: 2;
+        height: 2px;
+        padding: 0;
+        background: transparent;
+        &:hover{
+          background-color: ${palette.primary.main};
+        }
+        & > .__dbk__dragger.Dark {
+          width: 1px;
+          background: transparent;
+        }
+      }
       & .Vertical .__dbk__child-wrapper > div.MuiPaper-root > svg {
         width: 30%;
         height: 30%;

@@ -52,3 +52,13 @@ export type ToolBarMenuList = {
 export type ToolBarData = {
   [key: string]: Array<ToolBarMenuList[]>;
 };
+
+export enum PanelMode {
+  FULL = 'full',
+  NONE = 'none',
+}
+
+export type PanelState = {
+  open: boolean;
+  mode: PanelMode;
+};
