@@ -18,7 +18,7 @@ export default ({ ...props }) => {
           background: transparent;
         }
       }
-      & .Vertical .__dbk__child-wrapper svg {
+      & .Vertical .__dbk__child-wrapper > div.MuiPaper-root > svg {
         width: 30%;
         height: 30%;
       }
