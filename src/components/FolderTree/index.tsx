@@ -1,6 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import {
+  useState,
+  useEffect,
+  useMemo,
+  ForwardRefRenderFunction,
+  forwardRef,
+  useImperativeHandle,
+  SyntheticEvent,
+} from 'react';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box/Box';
 import FileIcon from '@components/FileIcon';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
@@ -9,14 +16,18 @@ import { FileExplorerStore, EditorStore } from '@store';
 import { FileData, FileType } from '@models';
 import treeViewStyles from './index.styles';
 import { sortTreeView } from '@utils/helper';
-import { Typography } from '@mui/material';
 
 const TreeViewRoot = styled(TreeView)`
   ${treeViewStyles}
 `;
 
-const FolderTree = () => {
+type FolderTreeHandle = {
+  collapseAll: () => void;
+};
+
+const FolderTree: ForwardRefRenderFunction<FolderTreeHandle> = (props, ref) => {
   const [filesList, setfilesList] = useState<Partial<FileData>[]>([]);
+  const [expanded, setExpanded] = useState<string[]>([]);
 
   useEffect(() => {
     const store = FileExplorerStore.subject.subscribe((v) => {
@@ -47,11 +58,27 @@ const FolderTree = () => {
     </TreeItem>
   );
 
+  useImperativeHandle(ref, () => ({
+    collapseAll: () => {
+      setExpanded([]);
+    },
+  }));
+
+  const handleNodeToggle = (event: SyntheticEvent, nodeIds: string[]) => {
+    setExpanded(nodeIds);
+  };
+
   return (
-    <TreeViewRoot defaultCollapseIcon={<VscChevronDown />} defaultExpandIcon={<VscChevronRight />} multiSelect>
+    <TreeViewRoot
+      expanded={expanded}
+      onNodeToggle={handleNodeToggle}
+      defaultCollapseIcon={<VscChevronDown />}
+      defaultExpandIcon={<VscChevronRight />}
+      multiSelect
+    >
       {rootList.map(renderTree)}
     </TreeViewRoot>
   );
 };
 
-export default FolderTree;
+export default forwardRef(FolderTree);
