@@ -17,7 +17,7 @@ const Container: React.FC<ContainerProps> = styled(Paper)`
 `;
 
 const AppMain = () => {
-  const { horizontalSplitter, verticalSplitter } = useMain();
+  const { horizontalSplitter, verticalSplitter, handleVerticalSplitterResizeFinish, isTransparent } = useMain();
   return (
     <Container component="main">
       <ActivityBar />
@@ -32,8 +32,9 @@ const AppMain = () => {
           <Splitter
             direction={SplitDirection.Vertical}
             initialSizes={verticalSplitter.initialSizes}
-            gutterClassName="custom-gutter-vertical"
+            gutterClassName={isTransparent ? 'custom-gutter-vertical transparent' : 'custom-gutter-vertical'}
             minHeights={verticalSplitter.minHeights}
+            onResizeFinished={handleVerticalSplitterResizeFinish}
           >
             <EditorGroups />
             <Panel />

@@ -23,6 +23,9 @@ export default ({ ...props }) => {
         height: 2px;
         padding: 0;
         background: ${mixins.contextMenu.divider};
+        &.transparent {
+          background: transparent;
+        }
         &:hover{
           background-color: ${palette.primary.main};
         }

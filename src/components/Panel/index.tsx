@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { VscClose, VscChevronUp } from 'react-icons/vsc';
+import { VscClose, VscChevronUp, VscChevronDown } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
@@ -17,6 +17,15 @@ const Container = styled(Paper)`
 
 const Panel = () => {
   const [value, setValue] = useState('Terminal');
+  const [mode, setMode] = useState(PanelStore.state.mode);
+
+  useEffect(() => {
+    const store = PanelStore.subject.subscribe((v) => {
+      setMode(v.mode);
+    });
+
+    return () => store.unsubscribe();
+  }, []);
 
   const handleChange = (active: string) => () => {
     setValue(active);
@@ -26,8 +35,8 @@ const Panel = () => {
     PanelStore.close();
   };
 
-  const handleOpenFull = () => {
-    PanelStore.open(PanelMode.FULL);
+  const handleOpen = (modeType: PanelMode) => () => {
+    PanelStore.open(modeType);
   };
 
   return (
@@ -39,8 +48,8 @@ const Panel = () => {
           ))}
         </Tabs>
         <Box>
-          <IconButton disableRipple onClick={handleOpenFull}>
-            <VscChevronUp />
+          <IconButton disableRipple onClick={handleOpen(mode === PanelMode.FULL ? PanelMode.NONE : PanelMode.FULL)}>
+            {mode === PanelMode.FULL ? <VscChevronDown /> : <VscChevronUp />}
           </IconButton>
           <IconButton disableRipple onClick={handleClose}>
             <VscClose />
