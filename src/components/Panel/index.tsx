@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import { VscClose, VscChevronUp } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { PanelStore } from '@store';
@@ -10,7 +11,7 @@ import { panelTabList } from '@utils/data/panel.data';
 import { PanelMode } from '@models';
 import containerStyles from './index.styles';
 
-const Container = styled(Box)`
+const Container = styled(Paper)`
   ${containerStyles}
 `;
 

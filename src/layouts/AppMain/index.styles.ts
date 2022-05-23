@@ -22,18 +22,22 @@ export default ({ ...props }) => {
         z-index: 2;
         height: 2px;
         padding: 0;
-        background: transparent;
+        background: ${mixins.contextMenu.divider};
         &:hover{
           background-color: ${palette.primary.main};
         }
         & > .__dbk__dragger.Dark {
-          width: 1px;
           background: transparent;
         }
       }
-      & .Vertical .__dbk__child-wrapper > div.MuiPaper-root > svg {
-        width: 30%;
-        height: 30%;
+      & .Vertical .__dbk__child-wrapper {
+        &:last-child {
+          z-index: 10;
+        }
+        & > div.MuiPaper-root > svg {
+          width: 30%;
+          height: 30%;
+        }
       }
     }
   `;
