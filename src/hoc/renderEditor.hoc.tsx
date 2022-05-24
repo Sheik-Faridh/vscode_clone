@@ -1,6 +1,6 @@
-import { EditorStore } from '@store';
 import { ComponentType, useEffect, useState } from 'react';
 import LogoPaper from '@components/LogoPaper';
+import { EditorStore } from '@store';
 
 const renderEditor = (Editors: ComponentType) => {
   const HOC = () => {

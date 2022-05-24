@@ -62,3 +62,9 @@ export type PanelState = {
   open: boolean;
   mode: PanelMode;
 };
+
+export type StatusBarState = {
+  lineNumber: number;
+  column: number;
+  fileType: string;
+};

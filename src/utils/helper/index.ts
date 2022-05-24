@@ -47,7 +47,11 @@ export const sortTreeView = (fileList: Partial<FileData>[]) => {
 
 export const getLanguageId = (languages: monaco.languages.ILanguageExtensionPoint[], extension: string) => {
   const match = languages.find((l) => l.extensions?.includes(extension));
-  return match?.id ? match.id : extension === '.prettierrc' ? 'json' : 'plaintext';
+  return match?.id
+    ? [match.id, extension === '.tsx' ? 'TypeScript React' : match.aliases[0]]
+    : extension === '.prettierrc'
+    ? ['json', 'JSON']
+    : ['plaintext', 'Plain Text'];
 };
 
 export const fullScreenService = {
