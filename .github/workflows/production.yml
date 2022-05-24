@@ -7,6 +7,12 @@ on:
     branches:
       - main
 
+env:
+  PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  OWNER: ${{ secrets.OWNER }}
+  REPO: ${{ secrets.REPO }}
+  REPO_BRANCH: ${{ secrets.REPO_BRANCH }}
+
 # Jobs to carry out
 jobs:
   deploy:
