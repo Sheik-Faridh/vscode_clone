@@ -80,6 +80,7 @@ const config = (env) => {
       new Dotenv({
         path: './.env',
         safe: true,
+        systemvars: true,
       }),
     ],
     optimization: {
