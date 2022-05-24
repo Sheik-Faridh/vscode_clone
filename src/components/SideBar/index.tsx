@@ -5,6 +5,7 @@ import Explorer from '@components/Explorer';
 import { SideBarStore } from '@store';
 import { Activity } from '@models';
 import containerStyles from './index.styles';
+import { Typography } from '@mui/material';
 
 const Container = styled(Box)`
   ${containerStyles}
@@ -21,7 +22,16 @@ const SideBar = () => {
     return () => store.unsubscribe();
   }, []);
 
-  return <Container>{activity === 'Explorer' && <Explorer />}</Container>;
+  return (
+    <Container>
+      {activity === 'Explorer' && <Explorer />}
+      {activity !== 'Explorer' && (
+        <Typography variant="body2" color="common.white">
+          Not Implemented Yet
+        </Typography>
+      )}
+    </Container>
+  );
 };
 
 export default SideBar;
