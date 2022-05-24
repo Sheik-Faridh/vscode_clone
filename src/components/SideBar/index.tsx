@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Explorer from '@components/Explorer';
+import Search from '@components/Search';
 import { SideBarStore } from '@store';
 import { Activity } from '@models';
 import containerStyles from './index.styles';
-import { Typography } from '@mui/material';
 
 const Container = styled(Box)`
   ${containerStyles}
@@ -25,11 +25,7 @@ const SideBar = () => {
   return (
     <Container>
       {activity === 'Explorer' && <Explorer />}
-      {activity !== 'Explorer' && (
-        <Typography variant="body2" color="common.white">
-          Not Implemented Yet
-        </Typography>
-      )}
+      {activity === 'Search' && <Search />}
     </Container>
   );
 };
