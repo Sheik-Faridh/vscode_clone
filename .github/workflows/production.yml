@@ -4,8 +4,8 @@ name: Production workflow
 # When workflow is triggered
 on:
   push:
-    tags:
-      - 'deploy'
+    branches:
+      - main
 
 # Jobs to carry out
 jobs:
