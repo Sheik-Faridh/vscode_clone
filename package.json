@@ -7,7 +7,7 @@
     "clean": "rimraf build",
     "start": "webpack serve --env development",
     "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production",
+    "build-prod": "npm run clean && webpack --mode production",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
