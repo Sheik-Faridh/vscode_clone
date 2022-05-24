@@ -8,7 +8,7 @@ export default class GithubService {
       const res = await this.gh.request('GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=1', {
         owner: process.env.OWNER,
         repo: process.env.REPO,
-        tree_sha: process.env.BRANCH,
+        tree_sha: process.env.REPO_BRANCH,
       });
       return res.data.tree;
     } catch (error) {

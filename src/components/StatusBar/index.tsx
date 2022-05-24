@@ -20,7 +20,7 @@ const StatusBar = () => {
     <Fragment>
       <Box>
         <Button color="inherit" size="small" startIcon={<VscGitMerge />}>
-          {process.env.BRANCH}*
+          {process.env.REPO_BRANCH}*
         </Button>
         <IconButton size="small">
           <VscSync />
