@@ -1,4 +1,4 @@
-export type Activity = 'Explorer' | 'Search' | 'Source Control' | 'Run and Debug' | 'Extensions' | 'Gitlens' | 'Docker';
+export type Activity = 'Explorer' | 'Search' | 'Source Control' | 'Run and Debug' | 'Extensions';
 
 export type ActivitySetting = 'Accounts' | 'Manage - New Code Update Available';
 
