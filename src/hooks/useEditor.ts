@@ -34,12 +34,29 @@ const useEditor = () => {
   useLayoutEffect(() => {
     if (monaco) {
       // validation settings
-      monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+      monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
         target: monaco.languages.typescript.ScriptTarget.Latest,
-        module: monaco.languages.typescript.ModuleKind.ES2015,
         allowNonTsExtensions: true,
+        moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
+        module: monaco.languages.typescript.ModuleKind.CommonJS,
         lib: ['es2018'],
+        noEmit: true,
+        esModuleInterop: true,
+        jsx: monaco.languages.typescript.JsxEmit.React,
+        reactNamespace: 'React',
+        allowJs: true,
+        typeRoots: ['node_modules/@types'],
       });
+
+      monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+        noSemanticValidation: false,
+        noSyntaxValidation: false,
+      });
+
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(
+        '<<react-definition-file>>',
+        `file:///node_modules/@react/types/index.d.ts`,
+      );
     }
   }, [monaco]);
 
