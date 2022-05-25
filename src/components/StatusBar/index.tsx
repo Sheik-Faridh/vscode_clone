@@ -1,15 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import {
-  VscGitMerge,
-  VscSync,
-  VscError,
-  VscWarning,
-  VscJson,
-  VscBroadcast,
-  VscCheck,
-  VscFeedback,
-  VscBell,
-} from 'react-icons/vsc';
+import { VscSync, VscError, VscWarning, VscJson, VscBroadcast, VscCheck, VscFeedback, VscBell } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -31,9 +21,6 @@ const StatusBar = () => {
   return (
     <Fragment>
       <Box>
-        <Button color="inherit" size="small" startIcon={<VscGitMerge />}>
-          {process.env.REPO_BRANCH}*
-        </Button>
         <IconButton size="small">
           <VscSync />
         </IconButton>
