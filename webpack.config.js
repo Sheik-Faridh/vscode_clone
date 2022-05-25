@@ -70,6 +70,7 @@ const config = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: 'public/index.html',
+        favicon: 'public/favicon.ico',
       }),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -78,7 +79,7 @@ const config = (env) => {
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin(),
       new Dotenv({
-        path: './.env',
+        path: path.resolve(__dirname, '.env'),
         safe: true,
         systemvars: true,
       }),

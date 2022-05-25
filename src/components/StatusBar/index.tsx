@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { VscSync, VscError, VscWarning, VscJson, VscBroadcast, VscCheck, VscFeedback, VscBell } from 'react-icons/vsc';
+import { VscError, VscWarning, VscJson, VscBroadcast, VscCheck, VscFeedback, VscBell } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -21,9 +21,6 @@ const StatusBar = () => {
   return (
     <Fragment>
       <Box>
-        <IconButton size="small">
-          <VscSync />
-        </IconButton>
         <ButtonGroup variant="text">
           <Button color="inherit" size="small" startIcon={<VscError />}>
             0

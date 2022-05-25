@@ -8,8 +8,8 @@ const useFullScreen = () => {
     setFullScreen(fullScreenService.enabled);
   };
 
-  const keyPressHandler = () => {
-    setFullScreen(fullScreenService.enabled);
+  const keyPressHandler = (event: KeyboardEvent) => {
+    event.code === 'F11' && event.preventDefault();
   };
 
   useEffect(() => {
