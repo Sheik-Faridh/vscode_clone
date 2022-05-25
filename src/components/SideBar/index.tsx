@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Explorer from '@components/Explorer';
-import Git from '@components/Git';
+import SourceControl from '@components/SourceControl';
+import RunAndDebug from '@components/RunAndDebug';
 import Search from '@components/Search';
 import { SideBarStore } from '@store';
 import { Activity } from '@models';
@@ -26,8 +27,8 @@ const SideBar = () => {
   const sideBarList: Record<Activity, JSX.Element> = {
     Explorer: <Explorer />,
     Search: <Search />,
-    'Source Control': <Git />,
-    'Run and Debug': <></>,
+    'Source Control': <SourceControl />,
+    'Run and Debug': <RunAndDebug />,
     Extensions: <></>,
   };
 

@@ -11,7 +11,7 @@ const Container = styled(Box)`
   ${containerStyles}
 `;
 
-const Git = () => {
+const SourceControl = () => {
   return (
     <Container>
       <Box className="header">
@@ -28,7 +28,7 @@ const Git = () => {
           Initialize Repository
         </Button>
         <Typography variant="body2">
-          To learn more about how to use git and source in VS Code{' '}
+          To learn more about how to use git and source in VS Code
           <Link target="_blank" href="https://code.visualstudio.com/docs/editor/versioncontrol" underline="none">
             read our docs
           </Link>
@@ -45,4 +45,4 @@ const Git = () => {
   );
 };
 
-export default Git;
+export default SourceControl;
