@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import FileIcon from '@components/FileIcon';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { EditorStore, FileExplorerStore } from '@store';
+import { EditorStore, FileExplorerStore, StatusBarStore } from '@store';
 import { FileData } from '@models';
 import containerStyles from './index.styles';
 
@@ -31,6 +31,7 @@ const OpenFileList = () => {
   const handleClose = (id: string) => (event: React.MouseEvent<HTMLSpanElement>) => {
     event.stopPropagation();
     EditorStore.closeFile(id);
+    StatusBarStore.reset();
   };
 
   const handleActive = (id: string) => () => {

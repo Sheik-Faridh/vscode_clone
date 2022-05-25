@@ -22,6 +22,8 @@ export default class StatusBarStore {
     const currentValue = this._subject.value;
     this._subject.next({
       ...currentValue,
+      lineNumber: 0,
+      column: 0,
       fileType,
     });
   }
