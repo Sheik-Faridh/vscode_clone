@@ -18,6 +18,11 @@ export default ({ ...props }) => {
         }
     }
     & li.MuiListItem-root {
+        padding: 5px 10px;
+        cursor: pointer;
+        &:hover {
+            background: #00000021;
+        }
         & div.MuiListItemText-root {
             & .MuiTypography-root {
                 white-space: nowrap;
@@ -25,13 +30,43 @@ export default ({ ...props }) => {
                 text-overflow: ellipsis;
             }
             & span.MuiListItemText-primary {
-               font-size: 0.85rem;
+               font-size: 0.9rem;
                color: ${palette.grey.A800};
                font-weight: 600;
             }
-            & p.MuiListItemText-secondary {
-                font-size: 0.8rem;
-                color: ${palette.grey[500]};
+            & div.MuiBox-root.secondary-wrapper {
+                & > p.MuiTypography-root {
+                    font-size: 0.775rem;
+                    color: ${palette.grey[500]};
+                }
+                & > div.MuiBox-root {
+                    display: flex;
+                    justify-content: space-between;
+                    & > button {
+                        padding: 0;
+                        text-transform: none;
+                        min-width:0;
+                        height:fit-content;
+                        font-size: 0.85rem;
+                        &.MuiButton-root.MuiButton-text {
+                            color: ${palette.grey.A800};
+                            font-weight: 500;
+                            & span.MuiButton-startIcon {
+                                margin-left: 0;
+                                margin-right: 2px;
+                                & svg {
+                                    color: ${palette.primary.main};
+                                }
+                            }
+                        }
+                        &.MuiButtonBase-root.MuiIconButton-root {
+                            color: ${palette.grey.A800};
+                            & > svg {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

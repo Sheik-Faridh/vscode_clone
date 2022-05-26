@@ -107,6 +107,7 @@ export type Extension = {
   rating: number;
   description: string;
   downloads: number;
+  verified: boolean;
 };
 
 export type ExtensionStoreState = {

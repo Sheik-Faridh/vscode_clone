@@ -37,6 +37,7 @@ export default class ExtensionStore {
       rating: d.r,
       description: d.s,
       downloads: d.ic,
+      verified: d.pdv,
     }));
   }
 }
