@@ -15,6 +15,7 @@ export type ActivityWithIcon = {
 export type SettingWithIcon = {
   name: ActivitySetting;
   icon: JSX.Element;
+  id: number;
 };
 
 export type FileType = 'blob' | 'tree';
@@ -47,6 +48,7 @@ export type EditorState = {
 export type ToolBarMenuList = {
   name: string;
   shortcut?: string;
+  disabled?: boolean;
 };
 
 export type ToolBarData = {
@@ -110,3 +112,7 @@ export type Extension = {
 export type ExtensionStoreState = {
   extensions: Extension[];
 };
+
+export interface UserSettingsProps extends SettingWithIcon {
+  menu: ToolBarMenuList[][];
+}

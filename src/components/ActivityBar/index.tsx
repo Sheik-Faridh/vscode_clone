@@ -4,9 +4,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Tooltip from '@mui/material/Tooltip';
+import UserSettings from '@components/UserSettings';
 import { SideBarStore } from '@store';
 import { Activity } from '@models';
-import { activityList, settingList } from '@utils/data/activitybar.data';
+import { accountsMenu, activityList, manageMenu, settingList } from '@utils/data/activitybar.data';
 import activityBarWrapperStyles from './index.styles';
 
 const ActivityBarWrapper = styled(Box)`
@@ -33,13 +34,13 @@ const ActivityBar = () => {
       </Box>
       <Box>
         <List>
-          {settingList.map((setting) => (
-            <Tooltip title={setting.name} placement="right" key={setting.name}>
-              <ListItem aria-selected="false">
-                <ListItemIcon>{setting.icon}</ListItemIcon>
-              </ListItem>
-            </Tooltip>
-          ))}
+          {settingList.map((setting) => {
+            const componentMap: Record<number, JSX.Element> = {
+              1: <UserSettings key={setting.id} {...setting} menu={accountsMenu} />,
+              2: <UserSettings key={setting.id} {...setting} menu={manageMenu} />,
+            };
+            return componentMap[setting.id];
+          })}
         </List>
       </Box>
     </ActivityBarWrapper>

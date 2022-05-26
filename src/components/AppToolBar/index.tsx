@@ -1,19 +1,14 @@
-import { FC, Fragment, useId, useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { FC, Fragment, useId } from 'react';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import Menu from '@mui/material/Menu';
+import Menu from '@atoms/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import toolbarData from '@utils/data/toolbar.data';
+import { useMenu } from '@hooks';
 import { ToolBarMenuList } from '@models';
-import menuStyles from './index.styles';
-
-const StyledMenu = styled(Menu)`
-  ${menuStyles}
-`;
+import toolbarData from '@utils/data/toolbar.data';
 
 type ToolBarMenuProps = {
   name: string;
@@ -21,9 +16,8 @@ type ToolBarMenuProps = {
 };
 
 const ToolBarMenu: FC<ToolBarMenuProps> = ({ name, menu }) => {
-  const buttonId = useId();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+  const { buttonId, open, anchorEl, setAnchorEl } = useMenu();
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -45,7 +39,7 @@ const ToolBarMenu: FC<ToolBarMenuProps> = ({ name, menu }) => {
       >
         {name}
       </Button>
-      <StyledMenu
+      <Menu
         id={`${buttonId}-menu`}
         anchorEl={anchorEl}
         open={open}
@@ -69,7 +63,7 @@ const ToolBarMenu: FC<ToolBarMenuProps> = ({ name, menu }) => {
             </span>
           );
         })}
-      </StyledMenu>
+      </Menu>
     </>
   );
 };
