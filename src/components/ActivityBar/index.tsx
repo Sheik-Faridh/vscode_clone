@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -6,7 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Tooltip from '@mui/material/Tooltip';
 import UserSettings from '@components/UserSettings';
 import { SideBarStore } from '@store';
-import { Activity } from '@models';
+import { Activity, SideBarState } from '@models';
 import { accountsMenu, activityList, manageMenu, settingList } from '@utils/data/activitybar.data';
 import activityBarWrapperStyles from './index.styles';
 
@@ -15,9 +16,16 @@ const ActivityBarWrapper = styled(Box)`
 `;
 
 const ActivityBar = () => {
+  const [sideBar, setSideBarState] = useState<SideBarState>(SideBarStore.state);
   const handleClick = (activity: Activity) => () => {
     SideBarStore.toggle(activity);
   };
+
+  useEffect(() => {
+    const store = SideBarStore.subject.subscribe(setSideBarState);
+
+    return () => store.unsubscribe();
+  }, []);
 
   return (
     <ActivityBarWrapper>
@@ -25,7 +33,10 @@ const ActivityBar = () => {
         <List>
           {activityList.map((activity) => (
             <Tooltip title={activity.name} placement="right" key={activity.name}>
-              <ListItem aria-selected="false" onClick={handleClick(activity.name)}>
+              <ListItem
+                selected={sideBar.open && sideBar.activity === activity.name}
+                onClick={handleClick(activity.name)}
+              >
                 <ListItemIcon>{activity.icon}</ListItemIcon>
               </ListItem>
             </Tooltip>

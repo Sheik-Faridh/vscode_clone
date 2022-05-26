@@ -12,17 +12,16 @@ export default class SideBarStore {
     return this._subject;
   }
 
-  static get activity() {
-    return this._subject.value.activity;
+  static get state() {
+    return this._subject.value;
   }
 
   static toggle(activity: Nullable<Activity>) {
     const currentValue = this._subject.value;
-    const newActivity = currentValue.activity === activity ? null : activity;
     this._subject.next({
       ...currentValue,
-      open: newActivity ? true : false,
-      activity: newActivity,
+      open: activity === currentValue.activity ? !currentValue.open : true,
+      activity,
     });
   }
 }

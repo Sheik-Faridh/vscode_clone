@@ -20,7 +20,10 @@ export default ({ ...props }) => {
               font-size: 28px;
             }
           }
-          &[aria-selected="true"],
+          &.Mui-selected {
+            border-left: 2px solid ${mixins.icon.background.default};
+            background-color: transparent;
+          }
           &:hover {
             & div.MuiListItemIcon-root > svg {
               color: ${mixins.icon.background.selected};

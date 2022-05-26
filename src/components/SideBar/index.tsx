@@ -7,7 +7,7 @@ import SourceControl from '@components/SourceControl';
 import RunAndDebug from '@components/RunAndDebug';
 import Search from '@components/Search';
 import { SideBarStore } from '@store';
-import { Activity } from '@models';
+import { Activity, SideBarState } from '@models';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -15,11 +15,11 @@ const Container = styled(Box)`
 `;
 
 const SideBar = () => {
-  const [activity, setActivity] = useState<Activity>(SideBarStore.activity);
+  const [sideBarState, setSideBarState] = useState<SideBarState>(SideBarStore.state);
 
   useEffect(() => {
     const store = SideBarStore.subject.subscribe((v) => {
-      setActivity(v.activity);
+      setSideBarState(v);
     });
 
     return () => store.unsubscribe();
@@ -33,7 +33,7 @@ const SideBar = () => {
     Extensions: <Extensions />,
   };
 
-  return <Container>{sideBarList[activity] || <></>}</Container>;
+  return <Container>{sideBarState.open ? sideBarList[sideBarState.activity] || <></> : <></>}</Container>;
 };
 
 export default SideBar;
