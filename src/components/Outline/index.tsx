@@ -1,18 +1,14 @@
-import { VscChevronRight, VscCollapseAll, VscEllipsis } from 'react-icons/vsc';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
+import { VscCollapseAll, VscEllipsis } from 'react-icons/vsc';
+import Accordion from '@atoms/Accordion';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useAccordion } from '@hooks';
 
 const Outline = () => {
-  const { expanded, handleChange } = useAccordion();
   return (
-    <Accordion expanded={expanded} onChange={handleChange} disableGutters square>
-      <AccordionSummary expandIcon={<VscChevronRight />}>
+    <Accordion>
+      <Accordion.Summary>
         <Typography variant="body2">Outline</Typography>
         <Box>
           <Tooltip title="Collapse All" placement="bottom">
@@ -26,12 +22,12 @@ const Outline = () => {
             </IconButton>
           </Tooltip>
         </Box>
-      </AccordionSummary>
-      <AccordionDetails>
+      </Accordion.Summary>
+      <Accordion.Details>
         <Box className="not-found-info-wrapper">
           <Typography variant="body2">The active editor cannot provide outline information</Typography>
         </Box>
-      </AccordionDetails>
+      </Accordion.Details>
     </Accordion>
   );
 };

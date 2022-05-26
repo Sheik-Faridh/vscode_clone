@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Explorer from '@components/Explorer';
+import Extensions from '@components/Extensions';
 import SourceControl from '@components/SourceControl';
 import RunAndDebug from '@components/RunAndDebug';
 import Search from '@components/Search';
@@ -29,7 +30,7 @@ const SideBar = () => {
     Search: <Search />,
     'Source Control': <SourceControl />,
     'Run and Debug': <RunAndDebug />,
-    Extensions: <></>,
+    Extensions: <Extensions />,
   };
 
   return <Container>{sideBarList[activity] || <></>}</Container>;

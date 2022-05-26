@@ -26,7 +26,8 @@
       "@models": ["models"],
       "@utils/*": ["utils/*"],
       "@api/*": ["api/*"],
-      "@hoc/*": ["hoc/*"]
+      "@hoc/*": ["hoc/*"],
+      "@atoms/*": ["atoms/*"]
     }
   },
   "include": ["./src/**/*"],

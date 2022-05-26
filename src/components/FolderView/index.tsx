@@ -1,17 +1,13 @@
 import { ElementRef, MouseEvent, useRef } from 'react';
-import { VscChevronRight, VscCollapseAll, VscNewFile, VscNewFolder, VscRefresh } from 'react-icons/vsc';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
+import { VscCollapseAll, VscNewFile, VscNewFolder, VscRefresh } from 'react-icons/vsc';
+import Accordion from '@atoms/Accordion';
 import Box from '@mui/material/Box';
 import FolderTree from '@components/FolderTree';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useAccordion } from '@hooks';
 
 const FolderView = () => {
-  const { expanded, handleChange } = useAccordion();
   type FolderViewHandle = ElementRef<typeof FolderTree>;
   const ref = useRef<FolderViewHandle>();
 
@@ -20,8 +16,8 @@ const FolderView = () => {
     ref.current.collapseAll();
   };
   return (
-    <Accordion expanded={expanded} onChange={handleChange} disableGutters square>
-      <AccordionSummary expandIcon={<VscChevronRight />}>
+    <Accordion>
+      <Accordion.Summary>
         <Typography variant="body2">{process.env.REPO}</Typography>
         <Box>
           <Tooltip title="New Untitled File" placement="bottom">
@@ -45,10 +41,10 @@ const FolderView = () => {
             </IconButton>
           </Tooltip>
         </Box>
-      </AccordionSummary>
-      <AccordionDetails>
+      </Accordion.Summary>
+      <Accordion.Details>
         <FolderTree ref={ref} />
-      </AccordionDetails>
+      </Accordion.Details>
     </Accordion>
   );
 };

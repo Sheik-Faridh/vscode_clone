@@ -4,7 +4,7 @@ export default ({ ...props }) => {
     & div.MuiBox-root.header {
         & > div.MuiBox-root {
             display: flex;
-            gap: 5px;
+            gap: 10px;
         }
     }
     & div.MuiBox-root.wrapper {
