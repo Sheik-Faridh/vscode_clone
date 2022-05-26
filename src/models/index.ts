@@ -68,3 +68,45 @@ export type StatusBarState = {
   column: number;
   fileType: string;
 };
+
+export type ExtensionData = {
+  ic: number;
+  dc: number;
+  rc: number;
+  a: string;
+  cc: number;
+  l: string;
+  s: string;
+  i: string;
+  fi: string;
+  t: string;
+  r: number;
+  pc: boolean;
+  pd: string;
+  pdv: boolean;
+};
+
+type ExtensionCategory = {
+  cn: string;
+  e: ExtensionData[];
+  hme: boolean;
+  sml?: any;
+};
+
+export interface ExtensionsRes {
+  epc: ExtensionCategory[];
+  c: string[];
+}
+
+export type Extension = {
+  logo: string;
+  name: string;
+  publisher: string;
+  rating: number;
+  description: string;
+  downloads: number;
+};
+
+export type ExtensionStoreState = {
+  extensions: Extension[];
+};

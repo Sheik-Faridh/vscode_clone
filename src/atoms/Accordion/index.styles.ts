@@ -27,6 +27,9 @@ export default ({ ...props }) => {
           & .MuiAccordionSummary-expandIconWrapper.Mui-expanded {
             transform: rotate(90deg);
           }
+          & .MuiAccordionSummary-expandIconWrapper > svg {
+            color: ${palette.common.white};
+          }
         }
         & .MuiAccordionDetails-root {
           background: ${mixins.accordion.summary.background};

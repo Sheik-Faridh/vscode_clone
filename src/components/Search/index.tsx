@@ -18,7 +18,7 @@ import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import TextField from '@atoms/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import containerStyles from './index.styles';
@@ -69,7 +69,7 @@ const Search = () => {
         </Box>
       </Box>
       <Box className="wrapper">
-        <OutlinedInput
+        <TextField
           inputRef={ref}
           size="small"
           fullWidth
@@ -97,7 +97,7 @@ const Search = () => {
           }
         />
         <Box>
-          <OutlinedInput
+          <TextField
             size="small"
             placeholder="Replace"
             endAdornment={
@@ -128,7 +128,7 @@ const Search = () => {
         <Box className="wrapper">
           <FormControl variant="standard">
             <InputLabel>files to include</InputLabel>
-            <OutlinedInput
+            <TextField
               size="small"
               fullWidth
               autoFocus
@@ -145,7 +145,7 @@ const Search = () => {
           </FormControl>
           <FormControl variant="standard">
             <InputLabel>files to exclude</InputLabel>
-            <OutlinedInput
+            <TextField
               size="small"
               fullWidth
               endAdornment={

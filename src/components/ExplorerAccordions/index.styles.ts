@@ -31,11 +31,6 @@ export default ({ ...props }) => {
             }
           }
         }
-        & .MuiAccordionSummary-expandIconWrapper {
-          > svg {
-            color: ${palette.common.white};
-          }
-        }
       }
       & .MuiAccordionDetails-root {
         & div.MuiBox-root.not-found-info-wrapper {

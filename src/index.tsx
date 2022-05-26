@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import App from 'App';
 import ThemeWrapper from '@themes';
-import { FileExplorerStore } from '@store';
+import { FileExplorerStore, ExtensionStore } from '@store';
 
 const container = document.getElementById('root');
 
@@ -16,3 +16,4 @@ root.render(
 );
 
 FileExplorerStore.init();
+ExtensionStore.init();

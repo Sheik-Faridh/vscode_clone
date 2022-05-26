@@ -18,24 +18,6 @@ export default ({ ...props }) => {
             position: relative;
             top: -20px;
         }
-        & .MuiOutlinedInput-root {
-            padding-right: 3px;
-            & input.MuiOutlinedInput-input  {
-                padding: 6px 8px;
-                font-size: 13px;
-                color: ${palette.grey.A900};
-                &::placeholder {
-                    color: ${palette.grey.A900};
-                }
-            }
-            & .MuiInputAdornment-root svg {
-                color: ${palette.grey.A900};
-            }
-            & fieldset.MuiOutlinedInput-notchedOutline {
-                border-color: ${palette.grey.A900};
-                border-radius: 0;
-            }
-        }
         & > div.MuiBox-root {
             display: flex;
             & .MuiOutlinedInput-root {

@@ -8,6 +8,7 @@
       "main": "#007acc"
     },
     "grey": {
+      "A800": "#cccccc",
       "A900": "#bbbbbb",
       "A1000": "#6e6565"
     },
@@ -65,6 +66,10 @@
         "selected": "#B1B1B1",
         "active": "#333333"
       }
+    },
+    "textField": {
+      "background": "#3C3C3C",
+      "color": "#A6A692"
     }
   }
 }

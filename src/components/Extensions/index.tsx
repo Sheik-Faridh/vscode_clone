@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { VscEllipsis, VscFilter, VscRefresh, VscClearAll } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
+import ExtensionsAccordion from '@components/ExtensionsAccordion';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -40,7 +41,7 @@ const Extensions = () => {
           </Tooltip>
         </Box>
       </Box>
-      <Box></Box>
+      <ExtensionsAccordion />
     </Container>
   );
 };
