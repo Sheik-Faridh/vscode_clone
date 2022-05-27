@@ -5,6 +5,8 @@ export default ({ ...props }) => {
           background: ${mixins.contextMenu.background};
           & ul.MuiList-root {
               & li.MuiMenuItem-root {
+                  padding-top: 3px;
+                  padding-bottom: 3px;
                   &:hover {
                       background: ${mixins.contextMenu.hover};
                   }
