@@ -17,7 +17,13 @@ const Container: React.FC<ContainerProps> = styled(Paper)`
 `;
 
 const AppMain = () => {
-  const { horizontalSplitter, verticalSplitter, handleVerticalSplitterResizeFinish, isTransparent } = useMain();
+  const {
+    horizontalSplitter,
+    verticalSplitter,
+    handleVerticalSplitterResizeFinish,
+    handleHorizontalSplitterResizeFinish,
+    isTransparent,
+  } = useMain();
   return (
     <Container component="main">
       <ActivityBar />
@@ -27,6 +33,7 @@ const AppMain = () => {
           initialSizes={horizontalSplitter.initialSizes}
           gutterClassName="custom-gutter-horizontal"
           minWidths={horizontalSplitter.minWidths}
+          onResizeFinished={handleHorizontalSplitterResizeFinish}
         >
           <SideBar />
           <Splitter

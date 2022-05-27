@@ -12,6 +12,7 @@ export default ({ ...props }) => {
         & > button.MuiButton-root.MuiButton-text {
           text-transform: capitalize;
           min-width: 0;
+          font-size: 12px;
         }
         & > span.MuiTypography-root.MuiTypography-button {
           text-transform: capitalize;

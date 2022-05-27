@@ -8,7 +8,7 @@ export default ({ ...props }) => {
       & .MuiTabs-root {
         & button.MuiTab-root {
           background: inherit;
-          font-size: 0.8rem;
+          font-size: 12px;
           color: ${mixins.panel.tab.fontColor};
           &.Mui-selected {
             color: ${mixins.panel.tab.selected};

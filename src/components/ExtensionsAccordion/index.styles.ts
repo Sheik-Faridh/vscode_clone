@@ -6,7 +6,7 @@ export default ({ ...props }) => {
             & .MuiAccordionSummary-content {
                 & .MuiTypography-root {
                     font-weight: 500;
-                    font-size: 0.775rem;
+                    font-size: 11px;
                     text-transform: uppercase;
                     color: ${palette.common.white};
                     text-overflow: ellipsis;
@@ -47,7 +47,7 @@ export default ({ ...props }) => {
                         text-transform: none;
                         min-width:0;
                         height:fit-content;
-                        font-size: 0.85rem;
+                        font-size: 12px;
                         &.MuiButton-root.MuiButton-text {
                             color: ${palette.grey.A800};
                             font-weight: 500;

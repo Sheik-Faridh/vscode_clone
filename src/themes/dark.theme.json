@@ -17,6 +17,14 @@
       "default": "#1e1e1e"
     }
   },
+  "typography": {
+    "body2": {
+      "fontSize": "12px"
+    },
+    "caption": {
+      "fontSize": "12px"
+    }
+  },
   "mixins": {
     "toolbar": {
       "background": "#404040",

@@ -15,7 +15,7 @@ export default ({ ...props }) => {
                       color: ${mixins.contextMenu.fontColor.primary};
                       min-width: 270px;
                       & span.MuiTypography-root.MuiTypography-body1 {
-                          font-size: 0.875rem;
+                        font-size: 12px;
                       }
                   }
                   & span.MuiTypography-caption  {

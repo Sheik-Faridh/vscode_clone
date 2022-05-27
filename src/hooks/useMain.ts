@@ -6,6 +6,7 @@ const useMain = () => {
   const [showSideBar, setShowSideBar] = useState(SideBarStore.isOpen);
   const [panel, setPanel] = useState(PanelStore.state);
   const panelHeightRef = useRef<number>(0);
+  const sideBarWidthRef = useRef<number>(20);
 
   useEffect(() => {
     const sidebarStore = SideBarStore.subject.subscribe((v) => {
@@ -23,8 +24,11 @@ const useMain = () => {
   }, []);
 
   const horizontalSplitter = useMemo(
-    () => ({ initialSizes: showSideBar ? [20, 80] : [0, 100], minWidths: [200, 350] }),
-    [showSideBar],
+    () => ({
+      initialSizes: showSideBar ? [sideBarWidthRef.current, 100 - sideBarWidthRef.current] : [0, 100],
+      minWidths: [200, 350],
+    }),
+    [showSideBar, sideBarWidthRef],
   );
 
   const verticalSplitter = useMemo(() => {
@@ -52,6 +56,14 @@ const useMain = () => {
     }
   };
 
+  const handleHorizontalSplitterResizeFinish = (pairIdx: number, newSizes: number[]) => {
+    const [sideBarWidth] = newSizes;
+    if (Math.floor(sideBarWidth)) {
+      !showSideBar && SideBarStore.open(true);
+    }
+    sideBarWidthRef.current = sideBarWidth;
+  };
+
   const isTransparent = useMemo(() => {
     return panel.mode === PanelMode.FULL || Math.floor(panelHeightRef.current) === 0;
   }, [panel, panelHeightRef]);
@@ -60,6 +72,7 @@ const useMain = () => {
     horizontalSplitter,
     verticalSplitter,
     handleVerticalSplitterResizeFinish,
+    handleHorizontalSplitterResizeFinish,
     isTransparent,
   };
 };

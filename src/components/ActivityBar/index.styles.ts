@@ -17,7 +17,7 @@ export default ({ ...props }) => {
             justify-content: center;
             & > svg {
               color: ${mixins.icon.background.default};
-              font-size: 28px;
+              font-size: 24px;
             }
           }
           &.Mui-selected {

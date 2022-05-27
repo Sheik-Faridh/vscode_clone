@@ -16,6 +16,14 @@ export default class SideBarStore {
     return this._subject.value;
   }
 
+  static open(open: boolean) {
+    const currentValue = this._subject.value;
+    this._subject.next({
+      ...currentValue,
+      open,
+    });
+  }
+
   static toggle(activity: Nullable<Activity>) {
     const currentValue = this._subject.value;
     this._subject.next({

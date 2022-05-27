@@ -8,13 +8,13 @@ export default ({ ...props }) => {
           padding: 15px;
           & p.MuiTypography-root {
               color: ${palette.grey.A900};
-              font-size: 0.85rem;
+              font-size: 12px;
           }
           & button.MuiButton-root {
               text-transform: none;
           }
           & a.MuiLink-root {
-              font-size: 0.85rem;
+              font-size: 12px;
           }
       } 
       `;

@@ -24,6 +24,9 @@ export default ({ ...props }) => {
           margin-right: 2px;
         }
       }
+      & button.MuiButton-root.MuiButton-text {
+        font-size: 12px;
+      }
       & .MuiButtonGroup-root {
         & button.MuiButton-root.MuiButton-text:nth-of-type(1) {
           padding-right: 0;
