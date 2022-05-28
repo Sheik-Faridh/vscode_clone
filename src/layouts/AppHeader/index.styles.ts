@@ -13,6 +13,7 @@ export default ({ ...props }) => {
           text-transform: capitalize;
           min-width: 0;
           font-size: 12px;
+          z-index: 10;
         }
         & > span.MuiTypography-root.MuiTypography-button {
           text-transform: capitalize;

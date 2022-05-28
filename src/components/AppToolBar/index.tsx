@@ -1,4 +1,4 @@
-import { FC, Fragment, useId } from 'react';
+import { Fragment, useState } from 'react';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Menu from '@atoms/Menu';
@@ -6,54 +6,52 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import { useMenu } from '@hooks';
-import { ToolBarMenuList } from '@models';
 import toolbarData from '@utils/data/toolbar.data';
 
-type ToolBarMenuProps = {
-  name: string;
-  menu: Array<ToolBarMenuList[]>;
-};
+const AppToolBar = () => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [menuName, setMenuName] = useState<string>();
+  const open = Boolean(anchorEl);
+  const menu = toolbarData[menuName as keyof typeof toolbarData] || [];
 
-const ToolBarMenu: FC<ToolBarMenuProps> = ({ name, menu }) => {
-  const { buttonId, open, anchorEl, setAnchorEl } = useMenu();
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (name: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
+    setMenuName(name);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  const handleMouseEnter = (name: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (open) {
+      setAnchorEl(event.currentTarget);
+      setMenuName(name);
+    }
+  };
+
   return (
-    <>
-      <Button
-        id={buttonId}
-        color="inherit"
-        size="small"
-        disableRipple
-        aria-controls={open ? `${buttonId}-menu` : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-        {name}
-      </Button>
-      <Menu
-        id={`${buttonId}-menu`}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': buttonId,
-        }}
-      >
+    <Fragment>
+      {Object.entries(toolbarData).map(([name, menu]) => (
+        <Button
+          key={name}
+          color="inherit"
+          size="small"
+          disableRipple
+          aria-expanded={open && menuName === name ? 'true' : undefined}
+          onMouseEnter={handleMouseEnter(name)}
+          onClick={handleClick(name)}
+        >
+          {name}
+        </Button>
+      ))}
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose} PopoverClasses={{ root: 'menu-toolbar' }}>
         {menu.map((list, index) => {
-          const id = useId();
           return (
-            <span key={id}>
+            <span key={index + 1}>
               {list.map((l, i) => (
-                <MenuItem key={`${id}${i}`} onClick={handleClose}>
+                <MenuItem key={`${index + 1}${i}`} onClick={handleClose}>
                   <ListItemIcon></ListItemIcon>
                   <ListItemText>{l.name}</ListItemText>
                   <Typography variant="caption">{l.shortcut ?? ''}</Typography>
@@ -64,16 +62,6 @@ const ToolBarMenu: FC<ToolBarMenuProps> = ({ name, menu }) => {
           );
         })}
       </Menu>
-    </>
-  );
-};
-
-const AppToolBar = () => {
-  return (
-    <Fragment>
-      {Object.entries(toolbarData).map(([name, menu]) => (
-        <ToolBarMenu key={name} name={name} menu={menu} />
-      ))}
     </Fragment>
   );
 };

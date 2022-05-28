@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { mixins } = props.theme;
+  const { mixins, palette } = props.theme;
   return `
       & div.MuiMenu-paper {
           background: ${mixins.contextMenu.background};
@@ -18,6 +18,7 @@ export default ({ ...props }) => {
                       min-width: 270px;
                       & span.MuiTypography-root.MuiTypography-body1 {
                         font-size: 12px;
+                        color: ${palette.common.white};
                       }
                   }
                   & span.MuiTypography-caption  {

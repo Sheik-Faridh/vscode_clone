@@ -24,12 +24,13 @@ export default ({ ...props }) => {
               }
             }
           }
-          &:hover,
-          &:focus {
-            &.Mui-expanded div.MuiBox-root {
-              display: block;
-            }
-          }
+          
+        }
+      }
+      &:hover,
+      &:focus {
+        &.Mui-expanded div.MuiAccordionSummary-content div.MuiBox-root {
+          display: block;
         }
       }
       & .MuiAccordionDetails-root {
