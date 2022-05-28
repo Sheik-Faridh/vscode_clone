@@ -9,7 +9,7 @@ export default ({ ...props }) => {
                     gap: 5px;
                     color: #696868;
                     min-height: ${mixins.toolbar.minHeight};
-                    font-size: 0.9rem;
+                    font-size: 12px;
                     text-transform: none;
                     line-height: 1;
                     padding: 8px 16px;

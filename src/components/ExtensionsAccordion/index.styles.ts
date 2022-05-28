@@ -6,7 +6,7 @@ export default ({ ...props }) => {
             & .MuiAccordionSummary-content {
                 & .MuiTypography-root {
                     font-weight: 500;
-                    font-size: 11px;
+                    font-size: 13px;
                     text-transform: uppercase;
                     color: ${palette.common.white};
                     text-overflow: ellipsis;
@@ -30,13 +30,13 @@ export default ({ ...props }) => {
                 text-overflow: ellipsis;
             }
             & span.MuiListItemText-primary {
-               font-size: 0.9rem;
+               font-size: 12px;
                color: ${palette.grey.A800};
                font-weight: 600;
             }
             & div.MuiBox-root.secondary-wrapper {
                 & > p.MuiTypography-root {
-                    font-size: 0.775rem;
+                    font-size: 12px;
                     color: ${palette.grey[500]};
                 }
                 & > div.MuiBox-root {

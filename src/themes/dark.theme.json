@@ -18,6 +18,12 @@
     }
   },
   "typography": {
+    "button": {
+      "fontSize": "12px"
+    },
+    "body1": {
+      "fontSize": "12px"
+    },
     "body2": {
       "fontSize": "12px"
     },
