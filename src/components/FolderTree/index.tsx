@@ -46,8 +46,9 @@ const FolderTree: ForwardRefRenderFunction<FolderTreeHandle> = (props, ref) => {
   const renderItemLabel = ({ type, name }: Pick<FileData, 'name' | 'type'>) =>
     type === 'blob' ? <FileIcon name={name} /> : '';
 
-  const renderTree = ({ sha, name, type }: Pick<FileData, 'sha' | 'name' | 'type'>) => (
+  const renderTree = ({ sha, name, type, path }: Pick<FileData, 'sha' | 'name' | 'type' | 'path'>) => (
     <TreeItem
+      title={path}
       key={sha}
       nodeId={sha}
       label={name}
