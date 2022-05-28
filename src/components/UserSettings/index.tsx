@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -7,11 +7,12 @@ import Menu from '@atoms/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useMenu } from '@hooks';
 import { UserSettingsProps } from '@models';
 
 const UserSettings: React.FC<UserSettingsProps> = ({ name, icon, menu }) => {
-  const { buttonId, open, setAnchorEl, anchorEl } = useMenu();
+  const buttonId = useId();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
@@ -44,9 +45,8 @@ const UserSettings: React.FC<UserSettingsProps> = ({ name, icon, menu }) => {
         }}
       >
         {menu.map((list, index) => {
-          const id = useId();
           return (
-            <span key={id}>
+            <span key={index + 1}>
               {list.map((l, i) => (
                 <MenuItem key={i} onClick={handleClose} disabled={l.disabled}>
                   <ListItemText>{l.name}</ListItemText>
