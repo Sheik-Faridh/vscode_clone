@@ -10,7 +10,7 @@ export default ({ ...props }) => {
       padding: '2px',
     },
     '& div.MuiTreeItem-label': {
-      fontSize: '14px',
+      fontSize: '15px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',

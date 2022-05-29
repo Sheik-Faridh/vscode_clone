@@ -13,6 +13,10 @@ export default ({ ...props }) => {
                     text-transform: none;
                     line-height: 1;
                     padding: 8px 16px;
+                    
+                    & svg {
+                        font-size: 20px;
+                    }
 
                     & span.MuiTab-iconWrapper {
                         display: grid;

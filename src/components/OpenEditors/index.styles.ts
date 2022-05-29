@@ -5,6 +5,7 @@ export default ({ ...props }) => {
           & li.MuiListItem-root {
               padding: 1px 10px 1px 20px;
               gap: 10px;
+              cursor: pointer;
               &:hover {
                   background-color: ${palette.grey[4]};
                   & div.MuiListItemIcon-root {
