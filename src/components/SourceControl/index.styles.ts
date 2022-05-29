@@ -7,7 +7,7 @@ export default ({ ...props }) => {
         gap: 15px;
         padding: 15px;
         & p.MuiTypography-root {
-            color: ${palette.grey.A900};
+            color: ${palette.grey[2]};
             font-size: 12px;
         }
         & button.MuiButton-root {

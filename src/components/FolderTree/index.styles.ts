@@ -6,7 +6,7 @@ export default ({ ...props }) => {
       paddingBottom: '5px',
     },
     '& li.MuiTreeItem-root': {
-      color: palette.grey.A900,
+      color: palette.grey[2],
       padding: '2px',
     },
     '& div.MuiTreeItem-label': {

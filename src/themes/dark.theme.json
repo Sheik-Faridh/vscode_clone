@@ -8,9 +8,10 @@
       "main": "#007acc"
     },
     "grey": {
-      "A800": "#cccccc",
-      "A900": "#bbbbbb",
-      "A1000": "#6e6565"
+      "1": "#cccccc",
+      "2": "#bbbbbb",
+      "3": "#6e6565",
+      "4": "#37373d"
     },
     "background": {
       "paper": "#1e1e1e",

@@ -13,10 +13,10 @@ export default ({ ...props }) => {
       & span.MuiTypography-root {
         line-height: 1;
         text-transform: uppercase;
-        color: ${palette.grey.A900};
+        color: ${palette.grey[2]};
       }
       & button.MuiButtonBase-root.MuiIconButton-root {
-        color: ${palette.grey.A900};
+        color: ${palette.grey[2]};
         padding: 0;
       }
     }

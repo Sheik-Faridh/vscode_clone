@@ -36,7 +36,7 @@ export default ({ ...props }) => {
       & .MuiAccordionDetails-root {
         & div.MuiBox-root.not-found-info-wrapper {
           padding: 20px;
-          color: ${palette.grey.A900};
+          color: ${palette.grey[2]};
         }
       }
     }

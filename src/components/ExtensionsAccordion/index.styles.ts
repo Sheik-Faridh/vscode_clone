@@ -31,7 +31,7 @@ export default ({ ...props }) => {
             }
             & span.MuiListItemText-primary {
                font-size: 12px;
-               color: ${palette.grey.A800};
+               color: ${palette.grey[1]};
                font-weight: 600;
             }
             & div.MuiBox-root.secondary-wrapper {
@@ -49,7 +49,7 @@ export default ({ ...props }) => {
                         height:fit-content;
                         font-size: 12px;
                         &.MuiButton-root.MuiButton-text {
-                            color: ${palette.grey.A800};
+                            color: ${palette.grey[1]};
                             font-weight: 500;
                             & span.MuiButton-startIcon {
                                 margin-left: 0;
@@ -60,7 +60,7 @@ export default ({ ...props }) => {
                             }
                         }
                         &.MuiButtonBase-root.MuiIconButton-root {
-                            color: ${palette.grey.A800};
+                            color: ${palette.grey[1]};
                             & > svg {
                                 font-size: 20px;
                             }

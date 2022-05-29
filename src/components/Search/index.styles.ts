@@ -24,13 +24,13 @@ export default ({ ...props }) => {
                 flex-grow: 1;
             }
             & button.MuiButtonBase-root.MuiIconButton-root svg { 
-                color: ${palette.grey.A900};
+                color: ${palette.grey[2]};
             }
         }
     }
     & div.MuiFormControl-root label {
         position: static;
-        color: ${palette.grey.A900};
+        color: ${palette.grey[2]};
         transform: none;
         font-size: 11px;
     }
@@ -42,7 +42,7 @@ export default ({ ...props }) => {
             padding: 0 10px;
             z-index: 10;
             & svg {
-                color: ${palette.grey.A900};
+                color: ${palette.grey[2]};
                 height: 20px;
             }
         }
