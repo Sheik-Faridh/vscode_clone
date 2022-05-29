@@ -12,6 +12,8 @@ import {
   VscBook,
   VscEllipsis,
   VscExclude,
+  VscChevronRight,
+  VscChevronDown,
 } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
@@ -30,6 +32,7 @@ const Container = styled(Box)`
 
 const Search = () => {
   const [toggle, setToggle] = useState(false);
+  const [showReplace, setShowReplace] = useState(false);
   const ref = useRef<HTMLInputElement>();
 
   const handleToggle = () => {
@@ -39,6 +42,10 @@ const Search = () => {
   useEffect(() => {
     !toggle && ref.current.focus();
   }, [toggle]);
+
+  const handleToggleReplace = () => {
+    setShowReplace((prevState) => !prevState);
+  };
   return (
     <Container>
       <Box className="header">
@@ -69,52 +76,57 @@ const Search = () => {
         </Box>
       </Box>
       <Box className="wrapper">
-        <TextField
-          inputRef={ref}
-          size="small"
-          fullWidth
-          placeholder="Search"
-          onFocus={(e) => (e.target.placeholder = 'Search (↑↓ for history)')}
-          onBlur={(e) => (e.target.placeholder = 'Search')}
-          endAdornment={
-            <InputAdornment position="end">
-              <Tooltip title="Match Case">
-                <IconButton size="small">
-                  <VscCaseSensitive />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Match Whole Word">
-                <IconButton size="small">
-                  <VscWholeWord />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Use Regular Expression">
-                <IconButton size="small">
-                  <VscRegex />
-                </IconButton>
-              </Tooltip>
-            </InputAdornment>
-          }
-        />
-        <Box>
+        <IconButton onClick={handleToggleReplace}>{showReplace ? <VscChevronDown /> : <VscChevronRight />}</IconButton>
+        <Box className="fields-wrapper">
           <TextField
+            inputRef={ref}
             size="small"
-            placeholder="Replace"
+            fullWidth
+            placeholder="Search"
+            onFocus={(e) => (e.target.placeholder = 'Search (↑↓ for history)')}
+            onBlur={(e) => (e.target.placeholder = 'Search')}
             endAdornment={
               <InputAdornment position="end">
-                <Tooltip title="Preserve Case">
+                <Tooltip title="Match Case">
                   <IconButton size="small">
-                    <VscPreserveCase />
+                    <VscCaseSensitive />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Match Whole Word">
+                  <IconButton size="small">
+                    <VscWholeWord />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Use Regular Expression">
+                  <IconButton size="small">
+                    <VscRegex />
                   </IconButton>
                 </Tooltip>
               </InputAdornment>
             }
           />
-          <Tooltip title="Replace All">
-            <IconButton size="small">
-              <VscReplaceAll />
-            </IconButton>
-          </Tooltip>
+          {showReplace && (
+            <Box>
+              <TextField
+                size="small"
+                placeholder="Replace"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Tooltip title="Preserve Case">
+                      <IconButton size="small">
+                        <VscPreserveCase />
+                      </IconButton>
+                    </Tooltip>
+                  </InputAdornment>
+                }
+              />
+              <Tooltip title="Replace All">
+                <IconButton size="small">
+                  <VscReplaceAll />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          )}
         </Box>
       </Box>
       <Box className="toggle-wrapper">
@@ -125,7 +137,7 @@ const Search = () => {
         </Tooltip>
       </Box>
       {toggle && (
-        <Box className="wrapper">
+        <Box className="fields-wrapper">
           <FormControl variant="standard">
             <InputLabel>files to include</InputLabel>
             <TextField

@@ -29,6 +29,7 @@ export default ({ ...props }) => {
           }
           & .MuiAccordionSummary-expandIconWrapper > svg {
             color: ${palette.common.white};
+            font-size: 19px;
           }
         }
         & .MuiAccordionDetails-root {

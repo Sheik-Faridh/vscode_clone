@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { palette } = props.theme;
+  const { palette, mixins } = props.theme;
   return `
     & div.MuiBox-root.header {
         & > div.MuiBox-root {
@@ -7,7 +7,7 @@ export default ({ ...props }) => {
             gap: 10px;
         }
     }
-    & div.MuiBox-root.wrapper {
+    & div.MuiBox-root.fields-wrapper {
         display: flex;
         gap: 10px;
         flex-direction: column;
@@ -44,6 +44,29 @@ export default ({ ...props }) => {
             & svg {
                 color: ${palette.grey[2]};
                 height: 20px;
+            }
+        }
+    }
+    & div.wrapper {
+        display: flex;
+        align-items: stretch;
+        padding: 0 10px 0 5px;
+        gap: 5px;
+        & > button.MuiButtonBase-root.MuiIconButton-root {
+            padding: 0;
+            color: ${mixins.icon.background.default};
+            border-radius: 0;
+            &:hover {
+                background: ${palette.grey[4]};
+            }
+            &:focus {
+                border: 1px solid ${palette.primary.main};
+            }
+        }
+        & div.MuiBox-root.fields-wrapper {
+            padding: 0;
+            &:last-child {
+                top: 0;
             }
         }
     }
