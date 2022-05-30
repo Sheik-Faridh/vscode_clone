@@ -15,6 +15,7 @@ const useMain = () => {
 
     const panelStore = PanelStore.subject.subscribe((v) => {
       setPanel(v);
+      if (!panelHeightRef.current && v.open) panelHeightRef.current = 50;
     });
 
     return () => {

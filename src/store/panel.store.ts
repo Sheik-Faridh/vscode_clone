@@ -27,6 +27,14 @@ export default class PanelStore {
     });
   }
 
+  static toggle() {
+    const currentValue = this._subject.value;
+    this._subject.next({
+      ...currentValue,
+      open: !currentValue.open,
+    });
+  }
+
   static get state() {
     return this._subject.value;
   }

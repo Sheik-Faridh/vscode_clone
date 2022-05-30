@@ -4,3 +4,4 @@ export { default as useEditor } from './useEditor';
 export { default as useExtension } from './useExtensions';
 export { default as useExplorerAccordion } from './useExplorerAccordion';
 export { default as useOpenEditor } from './useOpenEditor';
+export { default as useShortcuts } from './useShortcuts';
