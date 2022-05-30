@@ -29,7 +29,17 @@ const ExtensionsAccordion = () => {
       </Box>
       <Accordion>
         <Accordion.Summary>
-          <Typography variant="body2">Most Popular</Typography>
+          <Box display="flex" width="100%" justifyContent="space-between">
+            <Typography variant="body2">Installed</Typography>
+            <Typography variant="body2">0</Typography>
+          </Box>
+        </Accordion.Summary>
+      </Accordion>
+      <Accordion>
+        <Accordion.Summary>
+          <Box display="flex" width="100%" justifyContent="space-between">
+            <Typography variant="body2">Popular</Typography>
+          </Box>
         </Accordion.Summary>
         <Accordion.Details>
           <List>
@@ -59,6 +69,14 @@ const ExtensionsAccordion = () => {
             ))}
           </List>
         </Accordion.Details>
+      </Accordion>
+      <Accordion>
+        <Accordion.Summary>
+          <Box display="flex" width="100%" justifyContent="space-between">
+            <Typography variant="body2">Recommended</Typography>
+            <Typography variant="body2">0</Typography>
+          </Box>
+        </Accordion.Summary>
       </Accordion>
     </Container>
   );

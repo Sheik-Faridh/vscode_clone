@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { mixins } = props.theme;
+  const { mixins, palette } = props.theme;
   return `
     &.MuiOutlinedInput-root {
         padding-right: 3px;
@@ -18,6 +18,9 @@ export default ({ ...props }) => {
         & fieldset.MuiOutlinedInput-notchedOutline {
             border-color: transparent;
             border-radius: 0;
+        }
+        &.Mui-focused {
+            border: 1px solid ${palette.primary.main};
         }
     }
     `;

@@ -15,7 +15,7 @@ export default ({ ...props }) => {
                     padding: 8px 16px;
                     
                     & svg {
-                        font-size: 20px;
+                        font-size: 18px;
                     }
 
                     & span.MuiTab-iconWrapper {

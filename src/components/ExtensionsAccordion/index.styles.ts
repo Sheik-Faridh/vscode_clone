@@ -4,16 +4,30 @@ export default ({ ...props }) => {
     & .MuiAccordion-root {
         & .MuiAccordionSummary-root {
             & .MuiAccordionSummary-content {
-                & .MuiTypography-root {
-                    font-weight: 500;
-                    font-size: 13px;
-                    text-transform: uppercase;
-                    color: ${palette.common.white};
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    flex: 1;
+                & div.MuiBox-root {
+                    padding-right: 5px;
+                    & .MuiTypography-root {
+                        font-weight: 500;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        color: ${palette.common.white};
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
+                    & .MuiTypography-root:nth-of-type(2) {
+                        padding: 0 5px;
+                        background-color: ${palette.grey[5]};
+                        border-radius: 50%;
+                    }
                 }
+            }
+        }
+        & .MuiAccordionDetails-root {
+            height: calc(100vh - 271px);
+            & > ul.MuiList-root {
+                height: 100%;
+                overflow-y: auto;
             }
         }
     }
@@ -62,7 +76,7 @@ export default ({ ...props }) => {
                         &.MuiButtonBase-root.MuiIconButton-root {
                             color: ${palette.grey[1]};
                             & > svg {
-                                font-size: 20px;
+                                font-size: 19px;
                             }
                         }
                     }
