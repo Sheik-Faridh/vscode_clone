@@ -12,7 +12,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import TextField from '@atoms/TextField';
 import Typography from '@mui/material/Typography';
-import useExtension from 'hooks/useExtensions';
+import { useExtension } from '@hooks';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -21,6 +21,7 @@ const Container = styled(Box)`
 
 const ExtensionsAccordion = () => {
   const extensions = useExtension();
+
   return (
     <Container>
       <Box margin="8px 8px 32px">
@@ -28,7 +29,7 @@ const ExtensionsAccordion = () => {
       </Box>
       <Accordion>
         <Accordion.Summary>
-          <Typography variant="body2">Installed</Typography>
+          <Typography variant="body2">Most Popular</Typography>
         </Accordion.Summary>
         <Accordion.Details>
           <List>

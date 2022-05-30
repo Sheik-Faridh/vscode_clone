@@ -35,6 +35,15 @@ export default ({ ...props }) => {
         & .MuiAccordionDetails-root {
           background: ${mixins.accordion.summary.background};
           padding: 0;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            width: 0;
+          }
+          &:hover {
+            &::-webkit-scrollbar  {
+              width: 10px;
+            }
+          }
         }
     }
     `;

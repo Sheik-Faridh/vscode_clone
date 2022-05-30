@@ -27,7 +27,8 @@
       "@utils/*": ["utils/*"],
       "@api/*": ["api/*"],
       "@hoc/*": ["hoc/*"],
-      "@atoms/*": ["atoms/*"]
+      "@atoms/*": ["atoms/*"],
+      "@context": ["context"]
     }
   },
   "include": ["./src/**/*"],

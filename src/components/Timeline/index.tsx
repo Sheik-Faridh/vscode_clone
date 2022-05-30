@@ -4,10 +4,13 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { useExplorerAccordion } from '@hooks';
+import { ExplorerActivity } from '@models';
 
 const Timeline = () => {
+  const { accordionHeight, handleChange } = useExplorerAccordion(ExplorerActivity.timeline);
   return (
-    <Accordion>
+    <Accordion onChange={handleChange}>
       <Accordion.Summary>
         <Typography variant="body2">Timeline</Typography>
         <Box>
@@ -28,7 +31,7 @@ const Timeline = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details>
+      <Accordion.Details sx={{ height: accordionHeight }}>
         <Box className="not-found-info-wrapper">
           <Typography variant="body2">The active editor cannot provide timeline information</Typography>
         </Box>

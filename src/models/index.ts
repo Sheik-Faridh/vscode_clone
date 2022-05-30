@@ -2,6 +2,14 @@ export type Activity = 'Explorer' | 'Search' | 'Source Control' | 'Run and Debug
 
 export type ActivitySetting = 'Accounts' | 'Manage - New Code Update Available';
 
+export enum ExplorerActivity {
+  open_editors = 'Open Editors',
+  folder_view = 'Folder View',
+  timeline = 'Timeline',
+  outline = 'Outline',
+  npm_scripts = 'NPM Scripts',
+}
+
 export type SideBarState = {
   open: boolean;
   activity: Nullable<Activity>;

@@ -4,10 +4,13 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { useExplorerAccordion } from '@hooks';
+import { ExplorerActivity } from '@models';
 
 const Outline = () => {
+  const { accordionHeight, handleChange } = useExplorerAccordion(ExplorerActivity.outline);
   return (
-    <Accordion>
+    <Accordion onChange={handleChange}>
       <Accordion.Summary>
         <Typography variant="body2">Outline</Typography>
         <Box>
@@ -23,7 +26,7 @@ const Outline = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details>
+      <Accordion.Details sx={{ height: accordionHeight }}>
         <Box className="not-found-info-wrapper">
           <Typography variant="body2">The active editor cannot provide outline information</Typography>
         </Box>

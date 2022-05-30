@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { VscNewFile, VscSaveAll, VscCloseAll, VscEditorLayout, VscClose } from 'react-icons/vsc';
 import Accordion from '@atoms/Accordion';
@@ -11,8 +10,8 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { EditorStore, FileExplorerStore, StatusBarStore } from '@store';
-import { FileData } from '@models';
+import { useExplorerAccordion, useOpenEditor } from '@hooks';
+import { ExplorerActivity } from '@models';
 import listStyles from './index.styles';
 
 const ListStyled = styled(List)`
@@ -20,33 +19,7 @@ const ListStyled = styled(List)`
 `;
 
 const OpenFilesList = () => {
-  const [openFiles, setOpenFiles] = useState<string[]>([]);
-  const [files, setFiles] = useState<Partial<FileData>[]>([]);
-
-  useEffect(() => {
-    const editorStore = EditorStore.subject.subscribe((v) => {
-      setOpenFiles(v.openFiles);
-    });
-
-    const fileExplorerStore = FileExplorerStore.subject.subscribe((v) => {
-      setFiles(v.files);
-    });
-
-    return () => {
-      fileExplorerStore.unsubscribe();
-      editorStore.unsubscribe();
-    };
-  }, []);
-
-  const handleClose = (id: string) => (event: React.MouseEvent<HTMLOrSVGElement>) => {
-    event.stopPropagation();
-    EditorStore.closeFile(id);
-    StatusBarStore.reset();
-  };
-
-  const handleActive = (id: string) => () => {
-    EditorStore.setActive(id);
-  };
+  const { openFiles, files, handleClose, handleActive } = useOpenEditor();
 
   return openFiles.length ? (
     <ListStyled>
@@ -75,8 +48,9 @@ const OpenFilesList = () => {
 };
 
 const OpenEditors = () => {
+  const { accordionHeight, handleChange } = useExplorerAccordion(ExplorerActivity.open_editors);
   return (
-    <Accordion>
+    <Accordion onChange={handleChange}>
       <Accordion.Summary>
         <Typography variant="body2">Open Editors</Typography>
         <Box>
@@ -102,7 +76,7 @@ const OpenEditors = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details>
+      <Accordion.Details sx={{ height: accordionHeight }}>
         <OpenFilesList />
       </Accordion.Details>
     </Accordion>

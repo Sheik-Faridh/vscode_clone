@@ -6,8 +6,11 @@ import FolderTree from '@components/FolderTree';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { useExplorerAccordion } from '@hooks';
+import { ExplorerActivity } from '@models';
 
 const FolderView = () => {
+  const { accordionHeight, handleChange } = useExplorerAccordion(ExplorerActivity.folder_view);
   type FolderViewHandle = ElementRef<typeof FolderTree>;
   const ref = useRef<FolderViewHandle>();
 
@@ -15,8 +18,9 @@ const FolderView = () => {
     event.stopPropagation();
     ref.current.collapseAll();
   };
+
   return (
-    <Accordion>
+    <Accordion onChange={handleChange}>
       <Accordion.Summary>
         <Typography variant="body2">{process.env.REPO}</Typography>
         <Box>
@@ -42,7 +46,7 @@ const FolderView = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details>
+      <Accordion.Details sx={{ height: accordionHeight }}>
         <FolderTree ref={ref} />
       </Accordion.Details>
     </Accordion>

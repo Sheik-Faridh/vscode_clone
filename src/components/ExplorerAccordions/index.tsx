@@ -5,6 +5,7 @@ import NPMScripts from '@components/NPMScripts';
 import OpenEditors from '@components/OpenEditors';
 import Outline from '@components/Outline';
 import Timeline from '@components/Timeline';
+import { ExplorerProvider } from '@context';
 import containerStyles from './index.styles';
 
 const Container = styled(Box)`
@@ -13,13 +14,15 @@ const Container = styled(Box)`
 
 const ExplorerAccordions = () => {
   return (
-    <Container>
-      <OpenEditors />
-      <FolderView />
-      <Outline />
-      <Timeline />
-      <NPMScripts />
-    </Container>
+    <ExplorerProvider>
+      <Container>
+        <OpenEditors />
+        <FolderView />
+        <Outline />
+        <Timeline />
+        <NPMScripts />
+      </Container>
+    </ExplorerProvider>
   );
 };
 

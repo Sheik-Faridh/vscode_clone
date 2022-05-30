@@ -66,6 +66,7 @@ const config = (env) => {
         '@api': path.resolve(__dirname, 'src/api'),
         '@hoc': path.resolve(__dirname, 'src/hoc'),
         '@atoms': path.resolve(__dirname, 'src/atoms'),
+        '@context': path.resolve(__dirname, 'src/context'),
       },
     },
     plugins: [
