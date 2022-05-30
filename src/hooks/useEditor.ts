@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { useMonaco } from '@monaco-editor/react';
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+import * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { EditorStore, FileExplorerStore, StatusBarStore } from '@store';
 import { FileData } from '@models';
 import { getLanguageId } from '@utils/helper';
@@ -49,8 +49,8 @@ const useEditor = () => {
       });
 
       monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
-        noSemanticValidation: false,
-        noSyntaxValidation: false,
+        noSemanticValidation: true,
+        noSyntaxValidation: true,
       });
 
       monaco.languages.typescript.typescriptDefaults.addExtraLib(
@@ -60,7 +60,7 @@ const useEditor = () => {
     }
   }, [monaco]);
 
-  const handleOnMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
+  const handleOnMount = (editor: Monaco.editor.IStandaloneCodeEditor) => {
     editor.onMouseDown(() => {
       StatusBarStore.setCursorPosition(editor.getPosition().lineNumber, editor.getPosition().column);
     });
