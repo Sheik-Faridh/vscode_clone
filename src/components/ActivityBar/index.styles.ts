@@ -21,8 +21,11 @@ export default ({ ...props }) => {
             }
           }
           &.Mui-selected {
-            border-left: 2px solid ${mixins.icon.background.default};
+            border-left: 2px solid ${mixins.icon.background.selected};
             background-color: transparent;
+            & div.MuiListItemIcon-root > svg {
+              color: ${mixins.icon.background.selected};
+            }
           }
           &:hover {
             & div.MuiListItemIcon-root > svg {

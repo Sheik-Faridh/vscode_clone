@@ -54,7 +54,7 @@
     },
     "icon": {
       "background": {
-        "default": "#bbbbbb",
+        "default": "rgba(255,255,255,0.4)",
         "selected": "#ffffff"
       }
     },
