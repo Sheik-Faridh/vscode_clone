@@ -32,7 +32,7 @@ const ActivityBar = () => {
       <Box>
         <List>
           {activityList.map((activity) => (
-            <Tooltip title={activity.name} placement="right" key={activity.name}>
+            <Tooltip title={`${activity.name} (${activity.shortcut})`} placement="right" key={activity.name}>
               <ListItem
                 selected={sideBar.open && sideBar.activity === activity.name}
                 onClick={handleClick(activity.name)}

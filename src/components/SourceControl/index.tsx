@@ -15,7 +15,7 @@ const SourceControl = () => {
   return (
     <Container>
       <Box className="header">
-        <Tooltip title="Source Control" placement="bottom">
+        <Tooltip title="Source Control (Ctrl+Shift+G G)" placement="bottom">
           <Typography variant="caption">Source Control</Typography>
         </Tooltip>
       </Box>

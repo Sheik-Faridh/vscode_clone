@@ -13,22 +13,27 @@ export const activityList: ActivityWithIcon[] = [
   {
     name: 'Explorer',
     icon: <VscFiles />,
+    shortcut: 'Ctrl+Shift+E',
   },
   {
     name: 'Search',
     icon: <VscSearch />,
+    shortcut: 'Ctrl+Shift+F',
   },
   {
     name: 'Source Control',
     icon: <VscGitMerge />,
+    shortcut: 'Ctrl+Shift+G G',
   },
   {
     name: 'Run and Debug',
     icon: <VscDebugAlt />,
+    shortcut: 'Ctrl+Shift+D',
   },
   {
     name: 'Extensions',
     icon: <VscExtensions />,
+    shortcut: 'Ctrl+Shift+X',
   },
 ];
 

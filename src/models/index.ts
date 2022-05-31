@@ -18,6 +18,7 @@ export type SideBarState = {
 export type ActivityWithIcon = {
   name: Activity;
   icon: JSX.Element;
+  shortcut: string;
 };
 
 export type SettingWithIcon = {

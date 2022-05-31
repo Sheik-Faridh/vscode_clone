@@ -15,7 +15,7 @@ const Extensions = () => {
   return (
     <Container>
       <Box className="header">
-        <Tooltip title="Extensions" placement="bottom">
+        <Tooltip title="Extensions (Ctrl+Shift+X)" placement="bottom">
           <Typography variant="caption">Extensions</Typography>
         </Tooltip>
         <Box>

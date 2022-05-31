@@ -49,7 +49,7 @@ const Search = () => {
   return (
     <Container>
       <Box className="header">
-        <Tooltip title="Search" placement="bottom">
+        <Tooltip title="Search (Ctrl+Shift+F)" placement="bottom">
           <Typography variant="caption">Search</Typography>
         </Tooltip>
         <Box>

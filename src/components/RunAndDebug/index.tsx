@@ -16,7 +16,7 @@ const RunAndDebug = () => {
   return (
     <Container>
       <Box className="header">
-        <Tooltip title="Run and Debug: Run" placement="bottom">
+        <Tooltip title="Run and Debug: Run (Ctrl+Shift+D)" placement="bottom">
           <Typography variant="caption">Run And Debug: Run</Typography>
         </Tooltip>
         <Box>
