@@ -14,8 +14,8 @@ export default ({ ...props }) => {
                     line-height: 1;
                     padding: 8px 16px;
                     
-                    & svg {
-                        font-size: 20px;
+                    & > svg {
+                        font-size: 19px;
                     }
 
                     & span.MuiTab-iconWrapper {
@@ -30,6 +30,7 @@ export default ({ ...props }) => {
                         & svg {
                             visibility: hidden;
                             color: ${palette.grey[100]};
+                            font-size: 17px;
                         }
                     }
 

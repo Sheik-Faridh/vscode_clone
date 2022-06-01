@@ -1,9 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
-import { VscError, VscWarning, VscJson, VscBroadcast, VscCheck, VscFeedback, VscBell } from 'react-icons/vsc';
+import { VscError, VscWarning, VscJson, VscBroadcast, VscCheck, VscFeedback } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import Notifications from '@components/Notifications';
 import { StatusBarState } from '@models';
 import { StatusBarStore } from '@store';
 
@@ -59,9 +60,7 @@ const StatusBar = () => {
         <IconButton size="small">
           <VscFeedback />
         </IconButton>
-        <IconButton size="small">
-          <VscBell />
-        </IconButton>
+        <Notifications />
       </Box>
     </Fragment>
   );
