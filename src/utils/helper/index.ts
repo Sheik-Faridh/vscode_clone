@@ -84,3 +84,16 @@ export const fullScreenService = {
     );
   },
 };
+
+export const getFolderTraverseList = (filesList: Partial<FileData>[], id: string) => {
+  if (!filesList.length) return [];
+  const file = filesList.find((f) => f.sha === id);
+  let parentNode = file.parent;
+  const fileTraverseList = [{ name: file.name, parentNode, type: file.type, id: file.sha }];
+  while (parentNode !== null) {
+    const parentDir = filesList.find((f) => f.sha === parentNode);
+    parentNode = parentDir.parent;
+    fileTraverseList.unshift({ name: parentDir.name, parentNode, type: parentDir.type, id: parentDir.sha });
+  }
+  return fileTraverseList;
+};

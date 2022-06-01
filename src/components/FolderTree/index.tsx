@@ -26,12 +26,12 @@ type FolderTreeHandle = {
 };
 
 const FolderTree: ForwardRefRenderFunction<FolderTreeHandle> = (props, ref) => {
-  const [filesList, setfilesList] = useState<Partial<FileData>[]>([]);
+  const [filesList, setFilesList] = useState<Partial<FileData>[]>([]);
   const [expanded, setExpanded] = useState<string[]>([]);
 
   useEffect(() => {
     const store = FileExplorerStore.subject.subscribe((v) => {
-      setfilesList(v.files);
+      setFilesList(v.files);
     });
 
     return () => store.unsubscribe();

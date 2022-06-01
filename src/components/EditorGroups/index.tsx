@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Breadcrumb from '@components/Breadcrumb';
 import Editor from '@components/Editor';
 import EditorGroupsHeader from '@components/EditorGroupsHeader';
 import renderEditor from '@hoc/renderEditor.hoc';
@@ -13,6 +14,7 @@ const EditorGroups = () => {
   return (
     <Container>
       <EditorGroupsHeader />
+      <Breadcrumb />
       <Box className="editor-wrapper">
         <Editor />
       </Box>
