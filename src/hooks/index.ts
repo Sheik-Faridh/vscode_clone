@@ -6,3 +6,4 @@ export { default as useExplorerAccordion } from './useExplorerAccordion';
 export { default as useOpenEditor } from './useOpenEditor';
 export { default as useShortcuts } from './useShortcuts';
 export { default as useBreadcrumb } from './useBreadcrumb';
+export { default as useTreeView } from './useTreeView';

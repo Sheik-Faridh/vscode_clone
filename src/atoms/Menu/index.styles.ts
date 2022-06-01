@@ -26,8 +26,8 @@ export default ({ ...props }) => {
                   }
               }
               & hr.MuiDivider-root {
-                  margin: 8px 10px;
-                  border-color: ${mixins.contextMenu.divider};
+                margin: 8px 10px;
+                border-color: ${mixins.contextMenu.divider};
               }
           }
       }
