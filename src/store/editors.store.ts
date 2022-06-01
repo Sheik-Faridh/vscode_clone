@@ -36,4 +36,15 @@ export default class EditorStore {
       active: newFileList.length ? newFileList.at(-1) : '',
     });
   }
+
+  static closeAllFiles() {
+    const currentValue = this._subject.value;
+    if (currentValue.openFiles.length || currentValue.active) {
+      this._subject.next({
+        ...currentValue,
+        openFiles: [],
+        active: '',
+      });
+    }
+  }
 }

@@ -3,7 +3,7 @@ export default ({ ...props }) => {
   return `
       &.MuiList-root {
           & li.MuiListItem-root {
-              padding: 1px 10px 1px 20px;
+              padding: 1px 10px;
               gap: 10px;
               cursor: pointer;
               &:hover {

@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useExplorerAccordion, useOpenEditor } from '@hooks';
+import { EditorStore } from '@store';
 import { ExplorerActivity } from '@models';
 import listStyles from './index.styles';
 
@@ -49,6 +50,12 @@ const OpenFilesList = () => {
 
 const OpenEditors = () => {
   const { accordionHeight, handleChange } = useExplorerAccordion(ExplorerActivity.open_editors);
+
+  const handleCloseAll = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    EditorStore.closeAllFiles();
+  };
+
   return (
     <Accordion onChange={handleChange}>
       <Accordion.Summary>
@@ -70,7 +77,7 @@ const OpenEditors = () => {
             </IconButton>
           </Tooltip>
           <Tooltip title="Close All" placement="bottom">
-            <IconButton size="small">
+            <IconButton size="small" onClick={handleCloseAll}>
               <VscCloseAll />
             </IconButton>
           </Tooltip>
