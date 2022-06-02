@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import AppDialog from './AppDialog';
 import AppHeader from '@layouts/AppHeader';
 import AppFooter from '@layouts/AppFooter';
 import AppMain from '@layouts/AppMain';
@@ -11,6 +12,7 @@ const Layouts = () => {
       <AppHeader />
       <AppMain />
       <AppFooter />
+      <AppDialog />
     </Fragment>
   );
 };

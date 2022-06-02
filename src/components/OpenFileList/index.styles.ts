@@ -7,7 +7,7 @@ export default ({ ...props }) => {
             & .MuiTabs-flexContainer {
                 & button.MuiTab-root {
                     gap: 5px;
-                    color: #696868;
+                    color: ${palette.grey[6]};
                     min-height: ${mixins.toolbar.minHeight};
                     font-size: 12px;
                     text-transform: none;

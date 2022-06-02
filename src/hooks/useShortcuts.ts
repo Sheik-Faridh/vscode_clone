@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { PanelStore, SideBarStore, StatusBarStore } from '@store';
+import { DialogStore, PanelStore, SideBarStore, StatusBarStore } from '@store';
 import { PanelType } from '@models';
 import { getShortcutKey } from '@utils/helper';
 
@@ -64,14 +64,17 @@ const useShortcuts = () => {
       }
 
       switch (shortcutKey) {
-        case 'Ctrl+Shift+G':
-          setAction(shortcutKey);
+        case 'Ctrl+P':
+          DialogStore.open('FileDialog');
           return;
         case 'Ctrl+K':
           setAction('Ctrl+K');
           return;
         case 'Ctrl+`':
           PanelStore.setPanelType(PanelType.terminal);
+          return;
+        case 'Ctrl+Shift+G':
+          setAction(shortcutKey);
           return;
         case 'Ctrl+Shift+E':
           SideBarStore.toggle('Explorer');

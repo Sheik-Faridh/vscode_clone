@@ -135,3 +135,10 @@ export type ExtensionStoreState = {
 export interface UserSettingsProps extends SettingWithIcon {
   menu: ToolBarMenuList[][];
 }
+
+export type DialogType = 'FileDialog';
+
+export type DialogStoreState = {
+  open: boolean;
+  type: Nullable<DialogType>;
+};
