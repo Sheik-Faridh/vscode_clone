@@ -1,8 +1,8 @@
 import { BehaviorSubject } from 'rxjs';
-import { PanelState, PanelMode } from '@models';
+import { PanelState, PanelMode, PanelType } from '@models';
 
 export default class PanelStore {
-  private static _initialState: PanelState = { open: false, mode: PanelMode.NONE };
+  private static _initialState: PanelState = { open: false, mode: PanelMode.NONE, type: PanelType.terminal };
   private static _subject = new BehaviorSubject<PanelState>(this._initialState);
 
   static get subject() {
@@ -32,6 +32,15 @@ export default class PanelStore {
     this._subject.next({
       ...currentValue,
       open: !currentValue.open,
+    });
+  }
+
+  static setPanelType(type: PanelType) {
+    const currentValue = this._subject.value;
+    this._subject.next({
+      ...currentValue,
+      type,
+      open: true,
     });
   }
 

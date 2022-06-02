@@ -7,8 +7,7 @@ import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { PanelStore } from '@store';
-import { panelTabList } from '@utils/data/panel.data';
-import { PanelMode } from '@models';
+import { PanelMode, PanelType } from '@models';
 import containerStyles from './index.styles';
 
 const Container = styled(Paper)`
@@ -16,19 +15,20 @@ const Container = styled(Paper)`
 `;
 
 const Panel = () => {
-  const [value, setValue] = useState('Terminal');
+  const [value, setValue] = useState(PanelStore.state.type);
   const [mode, setMode] = useState(PanelStore.state.mode);
 
   useEffect(() => {
     const store = PanelStore.subject.subscribe((v) => {
       setMode(v.mode);
+      setValue(v.type);
     });
 
     return () => store.unsubscribe();
   }, []);
 
-  const handleChange = (active: string) => () => {
-    setValue(active);
+  const handleChange = (active: PanelType) => () => {
+    PanelStore.setPanelType(active);
   };
 
   const handleClose = () => {
@@ -43,7 +43,7 @@ const Panel = () => {
     <Container>
       <Box className="panel-header">
         <Tabs value={value}>
-          {panelTabList.map((list) => (
+          {Object.values(PanelType).map((list) => (
             <Tab key={list} value={list} label={list} disableRipple onClick={handleChange(list)} />
           ))}
         </Tabs>

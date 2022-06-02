@@ -10,6 +10,13 @@ export enum ExplorerActivity {
   npm_scripts = 'NPM Scripts',
 }
 
+export enum PanelType {
+  problem = 'Problems',
+  output = 'Output',
+  terminal = 'Terminal',
+  debug = 'Debug Console',
+}
+
 export type SideBarState = {
   open: boolean;
   activity: Nullable<Activity>;
@@ -72,12 +79,14 @@ export enum PanelMode {
 export type PanelState = {
   open: boolean;
   mode: PanelMode;
+  type: PanelType;
 };
 
 export type StatusBarState = {
   lineNumber: number;
   column: number;
   fileType: string;
+  action: string;
 };
 
 export type ExtensionData = {

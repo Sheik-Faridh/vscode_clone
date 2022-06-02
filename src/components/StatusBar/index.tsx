@@ -30,6 +30,11 @@ const StatusBar = () => {
             0
           </Button>
         </ButtonGroup>
+        {!!state.action && (
+          <Button color="inherit" size="small" variant="text">
+            {state.action}
+          </Button>
+        )}
       </Box>
       <Box>
         {!!state.lineNumber && (

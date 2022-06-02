@@ -2,7 +2,7 @@ import { StatusBarState } from '@models';
 import { BehaviorSubject } from 'rxjs';
 
 export default class StatusBarStore {
-  private static _initialState: StatusBarState = { lineNumber: 0, column: 0, fileType: '' };
+  private static _initialState: StatusBarState = { lineNumber: 0, column: 0, fileType: '', action: '' };
   private static _subject = new BehaviorSubject<StatusBarState>(this._initialState);
 
   static get subject() {
@@ -30,5 +30,13 @@ export default class StatusBarStore {
 
   static reset() {
     this._subject.next({ ...this._initialState });
+  }
+
+  static setAction(action: string) {
+    const currentValue = this._subject.value;
+    this._subject.next({
+      ...currentValue,
+      action,
+    });
   }
 }
