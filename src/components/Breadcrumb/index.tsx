@@ -64,7 +64,6 @@ const Breadcrumb: FC = () => {
           onNodeToggle={handleNodeToggle}
           defaultCollapseIcon={<VscChevronDown />}
           defaultExpandIcon={<VscChevronRight />}
-          multiSelect
         >
           {rootList.map(renderTree)}
         </TreeView>

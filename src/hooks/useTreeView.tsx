@@ -1,7 +1,7 @@
 import { useState, useEffect, SyntheticEvent, MouseEventHandler } from 'react';
 import TreeItem from '@mui/lab/TreeItem';
 import FileIcon from '@components/FileIcon';
-import { FileExplorerStore } from '@store';
+import { EditorStore, FileExplorerStore } from '@store';
 import { FileData, FileType } from '@models';
 import { sortTreeView } from '@utils/helper';
 
@@ -12,11 +12,11 @@ const useTreeView = (handleClick: HandleClick) => {
   const [expanded, setExpanded] = useState<string[]>([]);
 
   useEffect(() => {
-    const store = FileExplorerStore.subject.subscribe((v) => {
+    const fileExplorerStore = FileExplorerStore.subject.subscribe((v) => {
       setFilesList(v.files);
     });
 
-    return () => store.unsubscribe();
+    return () => fileExplorerStore.unsubscribe();
   }, []);
 
   const renderItemLabel = ({ type, name }: Pick<FileData, 'name' | 'type'>) =>
