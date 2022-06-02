@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { palette } = props.theme;
+  const { palette, mixins } = props.theme;
   return {
     '&.MuiTreeView-root': {
       paddingTop: '5px',
@@ -8,6 +8,13 @@ export default ({ ...props }) => {
     '& li.MuiTreeItem-root': {
       color: palette.grey[2],
       padding: '2px',
+    },
+    '& li.MuiTreeItem-root > div:hover': {
+      backgroundColor: palette.grey[4],
+    },
+    '& li.MuiTreeItem-root > div.Mui-selected': {
+      backgroundColor: mixins.contextMenu.hover,
+      border: `1px solid ${palette.primary.main}`,
     },
     '& div.MuiTreeItem-label': {
       fontSize: '15px',

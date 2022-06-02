@@ -37,7 +37,7 @@ export default ({ ...props }) => {
             }
             & > p.MuiTypography-root {
                 font-style: italic;
-                color: ${palette.grey[6]};
+                color: ${mixins.contextMenu.fontColor.secondary};
             }
         }
     } 
