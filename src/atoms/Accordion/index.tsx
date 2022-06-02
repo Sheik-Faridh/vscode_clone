@@ -10,7 +10,7 @@ const AccordionStyled = styled(MuiAccordion)`
 `;
 
 const Accordion = (props: AccordionProps) => {
-  return <AccordionStyled TransitionProps={{ unmountOnExit: true }} disableGutters square {...props} />;
+  return <AccordionStyled disableGutters square {...props} />;
 };
 
 const AccordionSummary: React.FC<AccordionSummaryProps> = ({ children }) => {
