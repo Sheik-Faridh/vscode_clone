@@ -83,7 +83,7 @@ const OpenEditors = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details sx={{ height: accordionHeight }}>
+      <Accordion.Details tabIndex={0} sx={{ height: accordionHeight }}>
         <OpenFilesList />
       </Accordion.Details>
     </Accordion>

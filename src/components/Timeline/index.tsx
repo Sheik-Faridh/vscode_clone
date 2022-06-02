@@ -31,7 +31,7 @@ const Timeline = () => {
           </Tooltip>
         </Box>
       </Accordion.Summary>
-      <Accordion.Details sx={{ height: accordionHeight }}>
+      <Accordion.Details tabIndex={0} sx={{ height: accordionHeight }}>
         <Box className="not-found-info-wrapper">
           <Typography variant="body2">The active editor cannot provide timeline information</Typography>
         </Box>
