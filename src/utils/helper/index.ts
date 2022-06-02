@@ -97,3 +97,10 @@ export const getFolderTraverseList = (filesList: Partial<FileData>[], id: string
   }
   return fileTraverseList;
 };
+
+export const getShortcutKey = (event: KeyboardEvent) => {
+  const ctrlKey = event.ctrlKey ? 'Ctrl+' : '';
+  const shiftKey = event.shiftKey ? 'Shift+' : '';
+  const key = event.key.toUpperCase();
+  return `${ctrlKey}${shiftKey}${key}`;
+};
