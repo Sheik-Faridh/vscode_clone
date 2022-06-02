@@ -4,7 +4,7 @@ import { FileExplorerState } from '@models';
 import { getFileList, getAllFilesContent } from '@utils/helper';
 
 export default class FileExplorerStore {
-  private static _initialState: FileExplorerState = { isFetching: true, contents: {}, files: [] };
+  private static _initialState: FileExplorerState = { isFetching: true, contents: {}, files: [], assets: {} };
   private static _subject = new BehaviorSubject<FileExplorerState>(this._initialState);
 
   static get subject() {
@@ -16,9 +16,9 @@ export default class FileExplorerStore {
       this.updateIsFetching(true);
       const data = await GithubService.getAllFiles();
       const files = getFileList(data);
-      const contents = await getAllFilesContent(data);
-      this._subject.next({ files, contents, isFetching: false });
-      this.persistStore({ files, contents });
+      const { contents, assets } = await getAllFilesContent(data);
+      this._subject.next({ files, contents, isFetching: false, assets });
+      this.persistStore({ files, contents, assets });
     } catch (error) {
       console.log(error);
       this.updateIsFetching(false);
@@ -30,9 +30,9 @@ export default class FileExplorerStore {
     this._subject.next({ ...currentValue, isFetching: state });
   }
 
-  static persistStore({ files, contents }: Partial<FileExplorerState>) {
+  static persistStore({ files, contents, assets }: Partial<FileExplorerState>) {
     const timeStamp = Date.now();
-    const state = JSON.stringify({ files, contents, timeStamp });
+    const state = JSON.stringify({ files, contents, timeStamp, assets });
     const base64 = window.btoa(state);
     localStorage.setItem('_files', base64);
   }
@@ -47,7 +47,7 @@ export default class FileExplorerStore {
         this.clearPersistStore();
         this.updateFiles();
       } else {
-        this._subject.next({ files: store.files, contents: store.contents, isFetching: false });
+        this._subject.next({ files: store.files, contents: store.contents, isFetching: false, assets: store.assets });
       }
     } else {
       this.updateFiles();
@@ -55,8 +55,8 @@ export default class FileExplorerStore {
   }
 
   static get state() {
-    const { files, contents } = this._subject.value;
-    return { files, contents };
+    const { files, contents, assets } = this._subject.value;
+    return { files, contents, assets };
   }
 
   static clearPersistStore() {

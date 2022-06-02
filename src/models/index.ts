@@ -54,6 +54,7 @@ export type FileExplorerState = {
   isFetching: boolean;
   contents: Record<string, string>;
   files: Partial<FileData>[];
+  assets: Record<string, string>;
 };
 
 export type EditorState = {

@@ -2,6 +2,10 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { Tree, FileData } from '@models';
 import GithubService from '@api/services/github.service';
 
+export const isImage = (name: string) => {
+  return /\.(gif|jpe?g|tiff?|png|webp|bmp|ico)$/i.test(name);
+};
+
 export const getFileList = (tree: Tree[]) => {
   const fileList = [];
   const regex = /\//;
@@ -30,10 +34,14 @@ export const getAllFilesContent = async (tree: Tree[]) => {
       promises.push(GithubService.getFileContent(file.path));
     }
     const results = promises.length ? await Promise.all(promises) : await Promise.resolve([]);
-    return results.reduce((acc, response) => {
-      acc[response.sha] = window.atob(response.content);
-      return acc;
-    }, {});
+    return results.reduce(
+      (acc, response) => {
+        acc.contents[response.sha] = window.atob(response.content);
+        if (isImage(response.name)) acc.assets[response.sha] = response.download_url;
+        return acc;
+      },
+      { contents: {}, assets: {} },
+    );
   } catch (error) {
     console.log(error);
   }
