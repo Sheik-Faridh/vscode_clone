@@ -6,7 +6,9 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import Tooltip from '@mui/material/Tooltip';
 import { PanelStore } from '@store';
+import { panelList } from '@utils/data/panel.data';
 import { PanelMode, PanelType } from '@models';
 import containerStyles from './index.styles';
 
@@ -43,8 +45,18 @@ const Panel = () => {
     <Container>
       <Box className="panel-header">
         <Tabs value={value}>
-          {Object.values(PanelType).map((list) => (
-            <Tab key={list} value={list} label={list} disableRipple onClick={handleChange(list)} />
+          {panelList.map((list) => (
+            <Tab
+              key={list.name}
+              value={list.name}
+              disableRipple
+              onClick={handleChange(list.name)}
+              label={
+                <Tooltip placement="top" title={`${list.name} (${list.shortcut})`}>
+                  <span>{list.name}</span>
+                </Tooltip>
+              }
+            />
           ))}
         </Tabs>
         <Box>
