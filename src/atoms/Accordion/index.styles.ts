@@ -36,8 +36,7 @@ export default ({ ...props }) => {
           background: ${mixins.accordion.summary.background};
           padding: 0;
           overflow-y: auto;
-          &:focus,
-          &:focus-within {
+          &:focus {
             border: 1px solid ${palette.primary.main};
           }
           &::-webkit-scrollbar {
