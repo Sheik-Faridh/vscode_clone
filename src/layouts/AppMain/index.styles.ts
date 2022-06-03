@@ -8,7 +8,7 @@ export default ({ ...props }) => {
       height: 100%;
       box-shadow: none;
       & .custom-gutter-horizontal {
-        z-index: 2;
+        z-index: 1;
         padding: 0 1px;
         &:hover {
           background-color: ${palette.primary.main};
