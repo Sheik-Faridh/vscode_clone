@@ -54,7 +54,7 @@ export default ({ ...props }) => {
         gap: 5px;
         & > button.MuiButtonBase-root.MuiIconButton-root {
             padding: 0;
-            color: ${mixins.icon.background.default};
+            color: ${mixins.panel.iconColor};
             border-radius: 0;
             &:hover {
                 background: ${palette.grey[4]};

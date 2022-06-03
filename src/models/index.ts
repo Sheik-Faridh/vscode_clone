@@ -143,3 +143,9 @@ export type DialogStoreState = {
   open: boolean;
   type: Nullable<DialogType>;
 };
+
+export type Theme = 'light' | 'dark';
+
+export type ThemeStoreState = {
+  mode: Theme;
+};
