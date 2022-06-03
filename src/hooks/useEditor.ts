@@ -1,14 +1,23 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useMemo } from 'react';
 import { useMonaco } from '@monaco-editor/react';
 import * as Monaco from 'monaco-editor/esm/vs/editor/editor.api';
-import { EditorStore, FileExplorerStore, StatusBarStore } from '@store';
-import { FileData } from '@models';
+import { EditorStore, FileExplorerStore, StatusBarStore, ThemeStore } from '@store';
+import { FileData, Theme } from '@models';
 import { getLanguageId } from '@utils/helper';
 
 const useEditor = () => {
   const [file, setFile] = useState<Partial<FileData>>();
   const [code, setCode] = useState('');
+  const [theme, setTheme] = useState<Theme>(ThemeStore.state.mode);
   const monaco = useMonaco();
+
+  useLayoutEffect(() => {
+    const themeStore = ThemeStore.subject.subscribe((v) => {
+      setTheme(v.mode);
+    });
+
+    return () => themeStore.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const editorStore = EditorStore.subject.subscribe((d) => {
@@ -66,7 +75,9 @@ const useEditor = () => {
     });
   };
 
-  return { code, handleOnMount };
+  const monacoTheme = useMemo(() => (theme === 'dark' ? 'vs-dark' : 'light'), [theme]);
+
+  return { code, handleOnMount, monacoTheme };
 };
 
 export default useEditor;

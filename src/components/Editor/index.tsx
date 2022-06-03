@@ -3,9 +3,9 @@ import { useEditor } from '@hooks';
 import renderPreview from '@hoc/renderPreview.hoc';
 
 const Editor = () => {
-  const { code, handleOnMount } = useEditor();
+  const { code, handleOnMount, monacoTheme } = useEditor();
 
-  return <MonacoEditor value={code} onMount={handleOnMount} theme="vs-dark" />;
+  return <MonacoEditor value={code} onMount={handleOnMount} theme={monacoTheme} />;
 };
 
 export default renderPreview(Editor);
