@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { palette, mixins } = props.theme;
+  const { mixins } = props.theme;
   return `
     ol.MuiBreadcrumbs-ol {
         height: 22px;
@@ -10,7 +10,7 @@ export default ({ ...props }) => {
             text-overflow: ellipsis;
             & .MuiButton-root.MuiButton-text  {
               font-size: 13px;
-              color: ${palette.grey[1]};
+              color: ${mixins.breadcrumb.color};
               text-transform: none;
               line-height: 1;
               min-width: 0;
@@ -21,7 +21,7 @@ export default ({ ...props }) => {
           margin-left: 3px;
           margin-right: 3px;
           & svg {
-            color: ${mixins.icon.background.default};
+            color: ${mixins.breadcrumb.iconColor};
             font-size: 18px;
           }
         }

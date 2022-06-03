@@ -1,7 +1,8 @@
 import React from 'react';
 import { ThemeProvider, createTheme, ThemeOptions } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import darkTheme from 'themes/dark.theme.json';
+import darkTheme from '@themes/dark.theme.json';
+import lightTheme from '@themes/light.theme.json';
 import GlobalStyle from './GlobalStyle';
 
 type Props = {

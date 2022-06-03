@@ -3,7 +3,7 @@ export default ({ ...props }) => {
   return `
     &.MuiAccordion-root {
         box-shadow: none;
-        border-bottom: 1px solid ${palette.grey[3]};
+        border-bottom: 1px solid ${palette.divider};
         &:last-child {
           border-bottom: none;
         }
@@ -28,7 +28,7 @@ export default ({ ...props }) => {
             transform: rotate(90deg);
           }
           & .MuiAccordionSummary-expandIconWrapper > svg {
-            color: ${palette.common.white};
+            color: ${mixins.accordion.color};
             font-size: 19px;
           }
         }

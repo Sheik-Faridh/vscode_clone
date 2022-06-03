@@ -5,7 +5,7 @@ export default ({ ...props }) => {
     height: 100%;
     & div.MuiBox-root.editor-wrapper {
       width: 100%;
-      height: calc(100% - ${mixins.toolbar.minHeight});
+      height: calc(100% - ${mixins.editorForeHead.height});
     }
   `;
 };

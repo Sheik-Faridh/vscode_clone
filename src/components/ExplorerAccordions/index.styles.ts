@@ -1,14 +1,14 @@
 export default ({ ...props }) => {
-  const { palette } = props.theme;
+  const { palette, mixins } = props.theme;
   return `
     .MuiAccordion-root {
       & .MuiAccordionSummary-root {
         & .MuiAccordionSummary-content {
           & .MuiTypography-root {
             font-weight: 500;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            color: ${palette.common.white};
+            color: ${mixins.accordion.color};
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
@@ -20,7 +20,7 @@ export default ({ ...props }) => {
               padding-top: 0;
               padding-bottom: 0;
               & svg {
-                color: ${palette.common.white};
+                color: ${mixins.accordion.color};
               }
             }
           }

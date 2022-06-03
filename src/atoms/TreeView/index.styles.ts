@@ -16,11 +16,17 @@ export default ({ ...props }) => {
       backgroundColor: mixins.contextMenu.hover,
       border: `1px solid ${palette.primary.main}`,
     },
+    '& li.MuiTreeItem-root > div.Mui-selected > div.MuiTreeItem-label': {
+      color: mixins.contextMenu.fontColor.primaryHover,
+    },
     '& div.MuiTreeItem-label': {
-      fontSize: '15px',
+      fontSize: '12px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
+    },
+    '& li.MuiTreeItem-root > div.Mui-selected > div.MuiTreeItem-iconContainer': {
+      color: mixins.contextMenu.fontColor.primaryHover,
     },
   };
 };

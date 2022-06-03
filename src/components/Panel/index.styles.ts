@@ -22,7 +22,7 @@ export default ({ ...props }) => {
         background: inherit;
         font-size: 1.25rem;
         & svg {
-          color: ${mixins.icon.background.selected};
+          color: ${mixins.panel.iconColor};
         }
       }
     }

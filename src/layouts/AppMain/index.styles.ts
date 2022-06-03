@@ -22,7 +22,7 @@ export default ({ ...props }) => {
         z-index: 2;
         height: 2px;
         padding: 0;
-        background: ${mixins.contextMenu.divider};
+        background: ${palette.divider};
         &.transparent {
           background: transparent;
         }

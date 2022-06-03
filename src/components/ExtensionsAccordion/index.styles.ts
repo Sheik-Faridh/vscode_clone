@@ -1,5 +1,5 @@
 export default ({ ...props }) => {
-  const { palette } = props.theme;
+  const { palette, mixins } = props.theme;
   return `
     & .MuiAccordion-root {
         & .MuiAccordionSummary-root {
@@ -10,14 +10,14 @@ export default ({ ...props }) => {
                         font-weight: 500;
                         font-size: 13px;
                         text-transform: uppercase;
-                        color: ${palette.common.white};
+                        color: ${mixins.accordion.color};
                         text-overflow: ellipsis;
                         overflow: hidden;
                         white-space: nowrap;
                     }
                     & .MuiTypography-root:nth-of-type(2) {
                         padding: 0 5px;
-                        background-color: ${palette.grey[5]};
+                        background-color: ${mixins.accordion.summary.iconBg};
                         border-radius: 50%;
                     }
                 }
@@ -45,13 +45,13 @@ export default ({ ...props }) => {
             }
             & span.MuiListItemText-primary {
                font-size: 12px;
-               color: ${palette.grey[1]};
+               color: ${mixins.extensionsList.primary};
                font-weight: 600;
             }
             & div.MuiBox-root.secondary-wrapper {
                 & > p.MuiTypography-root {
                     font-size: 12px;
-                    color: ${palette.grey[500]};
+                    color: ${mixins.extensionsList.secondary};
                 }
                 & > div.MuiBox-root {
                     display: flex;
@@ -63,7 +63,7 @@ export default ({ ...props }) => {
                         height:fit-content;
                         font-size: 12px;
                         &.MuiButton-root.MuiButton-text {
-                            color: ${palette.grey[1]};
+                            color: ${mixins.extensionsList.primary};
                             font-weight: 500;
                             & span.MuiButton-startIcon {
                                 margin-left: 0;
@@ -74,7 +74,7 @@ export default ({ ...props }) => {
                             }
                         }
                         &.MuiButtonBase-root.MuiIconButton-root {
-                            color: ${palette.grey[1]};
+                            color: ${mixins.extensionsList.primary};
                             & > svg {
                                 font-size: 19px;
                             }

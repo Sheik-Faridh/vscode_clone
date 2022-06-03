@@ -8,7 +8,7 @@ export default ({ ...props }) => {
       right: 3px;
       justify-content: space-between;
       align-items: center;
-      height: ${mixins.toolbar.minHeight};
+      height: ${mixins.editorForeHead.height};
       background: ${mixins.sidebar.background};
       box-shadow: ${shadows[2]};
       & div.MuiBox-root:nth-of-type(1) {

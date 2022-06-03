@@ -1,18 +1,20 @@
 export default ({ ...props }) => {
-  const { mixins, palette } = props.theme;
+  const { mixins } = props.theme;
   return `
         & .MuiTabs-root {
             height: 100%;
-            min-height: ${mixins.toolbar.minHeight};
+            min-height: ${mixins.editorForeHead.height};
             & .MuiTabs-flexContainer {
                 & button.MuiTab-root {
                     gap: 5px;
-                    color: ${palette.grey[6]};
-                    min-height: ${mixins.toolbar.minHeight};
+                    color: ${mixins.editorForeHead.color};
+                    min-height: ${mixins.editorForeHead.height};
                     font-size: 12px;
                     text-transform: none;
                     line-height: 1;
                     padding: 8px 16px;
+                    font-weight: 400;
+                    font-style: italic;
                     
                     & > svg {
                         font-size: 19px;
@@ -25,18 +27,18 @@ export default ({ ...props }) => {
                         border-radius: 4px;
                         margin: 0;
                         &:hover {
-                            background: ${palette.grey[600]};
+                            background: ${mixins.editorForeHead.iconBg};
                         }
                         & svg {
                             visibility: hidden;
-                            color: ${palette.grey[100]};
+                            color: ${mixins.editorForeHead.iconColor};
                             font-size: 17px;
                         }
                     }
 
                     &.Mui-selected {
-                        color: ${palette.common.white};
-                        background: ${palette.background.default};
+                        color: ${mixins.editorForeHead.active};
+                        background: ${mixins.editorForeHead.background};
                     }
 
                     &:hover,
@@ -48,7 +50,7 @@ export default ({ ...props }) => {
                 }
             }
             & .MuiTabScrollButton-root {
-                color: ${palette.grey[100]};
+                color: ${mixins.editorForeHead.color};
             }
             & .MuiTabs-indicator {
                 height: 0;
