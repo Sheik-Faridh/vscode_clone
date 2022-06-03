@@ -20,7 +20,7 @@ export default ({ ...props }) => {
       color: mixins.contextMenu.fontColor.primaryHover,
     },
     '& div.MuiTreeItem-label': {
-      fontSize: '12px',
+      fontSize: '13px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',

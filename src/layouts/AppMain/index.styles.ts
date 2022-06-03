@@ -19,7 +19,7 @@ export default ({ ...props }) => {
         }
       }
       & .custom-gutter-vertical {
-        z-index: 2;
+        z-index: 1;
         height: 2px;
         padding: 0;
         background: ${palette.divider};
@@ -35,7 +35,7 @@ export default ({ ...props }) => {
       }
       & .Vertical .__dbk__child-wrapper {
         &:last-child {
-          z-index: 10;
+          z-index: 1;
         }
         & > div.MuiPaper-root > svg {
           width: 30%;

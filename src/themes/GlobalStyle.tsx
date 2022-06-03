@@ -17,6 +17,9 @@ const GlobalStyle = (props: ThemeOptions) => (
       div.menu-toolbar {
         z-index: 1;
       }
+      div#notification-popper {
+        z-index: 2;
+      }
     `}
   />
 );
