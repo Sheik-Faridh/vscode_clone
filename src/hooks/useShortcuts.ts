@@ -42,6 +42,7 @@ const useShortcuts = () => {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.repeat) return;
+
       if (event.ctrlKey || event.shiftKey) event.preventDefault();
 
       const shortcutKey = getShortcutKey(event);
@@ -54,6 +55,13 @@ const useShortcuts = () => {
 
       if (shortcutKey === 'Ctrl+H' && lastKeyPressRef.current === 'Ctrl+K') {
         PanelStore.setPanelType(PanelType.output);
+        clearAction();
+        return;
+      }
+
+      if (shortcutKey === 'T' && lastKeyPressRef.current === 'Ctrl+K') {
+        event.preventDefault();
+        DialogStore.open('ThemeDialog');
         clearAction();
         return;
       }

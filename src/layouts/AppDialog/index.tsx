@@ -1,4 +1,5 @@
 import FileDialog from '@components/FilesDialog';
+import ThemeDialog from '@components/ThemeDialog';
 import { DialogStoreState, DialogType } from '@models';
 import { DialogStore } from '@store';
 import { useEffect, useState } from 'react';
@@ -16,6 +17,7 @@ const AppDialog = () => {
 
   const Dialogs: Record<DialogType, JSX.Element> = {
     FileDialog: <FileDialog />,
+    ThemeDialog: <ThemeDialog />,
   };
 
   return dialog.open ? Dialogs[dialog.type] || <></> : <></>;

@@ -15,37 +15,37 @@ export default ({ ...props }) => {
         max-height: 40vh;
         overflow-y: auto;
         overflow-x: hidden;
-        & > li.MuiListItem-root {
-            padding: 2px 0 2px 10px;
-            gap: 10px;
-            cursor: pointer;
-            & div.MuiListItemIcon-root {
-                min-width: 0;
-            }
-            & div.MuiListItemText-root {
-                flex: none;
-                color: ${palette.grey[2]};
-                & span.MuiTypography-root {
-                    font-size: 12px;
-                }
-            }
-            & > p.MuiTypography-root {
-                font-style: italic;
-                color: ${mixins.contextMenu.fontColor.secondary};
-            }
-            &:hover {
-                background-color: ${palette.grey[4]};
-            }
-            &.Mui-selected {
-                background-color: ${mixins.contextMenu.hover};
-                & div.MuiListItemText-root {
-                    color: ${mixins.contextMenu.fontColor.primaryHover};
-                }
-                & > p.MuiTypography-root {
-                    color: ${mixins.contextMenu.fontColor.secondaryHover};
-                }
+    }
+    & > li.MuiListItem-root {
+        padding: 2px 0 2px 10px;
+        gap: 10px;
+        cursor: pointer;
+        & div.MuiListItemIcon-root {
+            min-width: 0;
+        }
+        & div.MuiListItemText-root {
+            flex: none;
+            color: ${palette.grey[2]};
+            & span.MuiTypography-root {
+                font-size: 12px;
             }
         }
-    } 
+        & > p.MuiTypography-root {
+            font-style: italic;
+            color: ${mixins.contextMenu.fontColor.secondary};
+        }
+        &:hover {
+            background-color: ${palette.grey[4]};
+        }
+        &.Mui-selected {
+            background-color: ${mixins.contextMenu.hover};
+            & div.MuiListItemText-root {
+                color: ${mixins.contextMenu.fontColor.primaryHover};
+            }
+            & > p.MuiTypography-root {
+                color: ${mixins.contextMenu.fontColor.secondaryHover};
+            }
+        }
+    }
     `;
 };

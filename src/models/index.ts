@@ -1,3 +1,7 @@
+export type Props = {
+  children: React.ReactNode;
+};
+
 export type Activity = 'Explorer' | 'Search' | 'Source Control' | 'Run and Debug' | 'Extensions';
 
 export type ActivitySetting = 'Accounts' | 'Manage - New Code Update Available';
@@ -137,7 +141,7 @@ export interface UserSettingsProps extends SettingWithIcon {
   menu: ToolBarMenuList[][];
 }
 
-export type DialogType = 'FileDialog';
+export type DialogType = 'FileDialog' | 'ThemeDialog';
 
 export type DialogStoreState = {
   open: boolean;

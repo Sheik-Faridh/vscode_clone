@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Dialog from '@atoms/Dialog';
@@ -9,6 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import TextField from '@atoms/TextField';
 import Typography from '@mui/material/Typography';
+import { useSearch } from '@hooks';
 import { DialogStore, EditorStore, FileExplorerStore } from '@store';
 import { FileData } from '@models';
 import containerStyles from './index.styles';
@@ -19,8 +20,8 @@ const Container = styled(Box)`
 
 const FileDialog = () => {
   const [files, setFiles] = useState<Partial<FileData>[]>([]);
-  const [search, setSearch] = useState('');
   const [active, setActive] = useState('');
+  const { search, handleChange } = useSearch();
 
   const handleClose = () => {
     DialogStore.close();
@@ -29,10 +30,6 @@ const FileDialog = () => {
   const handleClick = (id: string) => () => {
     EditorStore.openFile(id);
     handleClose();
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    setSearch(event.target.value);
   };
 
   useEffect(() => {
