@@ -12,5 +12,13 @@ export default ({ ...props }) => {
             background: ${mixins.sidebar.background};
         }
     }
+    &.errorDialogContainer {
+        & .MuiDialogTitle-root {
+            color: ${mixins.contextMenu.fontColor.primary};
+        }
+        & .MuiDialogContentText-root {
+            color: ${mixins.contextMenu.fontColor.secondary};
+        }
+    }
     `;
 };

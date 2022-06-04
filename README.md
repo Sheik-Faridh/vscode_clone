@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/Website-Netlify-blue)](https://vscodeclone.netlify.app/)
 
-A Visual Studio Code shows its own code :sunglasses: with the help of GitHub API. The application is bundled with the help of powerful plugin, **Webpack**. A CI/CD pipeline is setup with the GitHub Workflow for deploying the application on Netlify platform on main branch push action.
+A Visual Studio Code Clone app shows its own code :sunglasses: with the help of GitHub API. The application is bundled with the help of powerful plugin, **Webpack**. A CI/CD pipeline is setup with the GitHub Workflow for deploying the application on Netlify platform while pushing the code into main branch.
 
 <p align="center">  <img width="50" height="40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207">&nbsp;&nbsp;&nbsp;<img width="40" height="50" src="https://raw.githubusercontent.com/webpack/media/master/logo/icon.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://mui.com/static/icons/180x180.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png"></p>
 
