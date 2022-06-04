@@ -48,6 +48,17 @@ const config = (env) => {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
         },
+        {
+          test: /\.png$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                mimetype: 'image/png',
+              },
+            },
+          ],
+        },
       ],
     },
     resolve: {
