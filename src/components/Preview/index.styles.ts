@@ -21,15 +21,6 @@ export default ({ ...props }) => {
             & img {
                 background-color: ${palette.background.paper};
             }
-            &::-webkit-scrollbar {
-                width: 10px;
-              }
-            &::-webkit-scrollbar-thumb {
-                background-color: rgba(121, 121, 121, 0.4);
-            }
-            &::-webkit-scrollbar-track {
-                background-color: transparent;
-            }
         }
     `;
 };

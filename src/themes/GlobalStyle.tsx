@@ -12,7 +12,8 @@ const GlobalStyle = ({ mode }: GlobalStylesProps) => {
         @import url(${mode === 'light'
           ? 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.css'
           : 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.css'});
-        :-webkit-scrollbar {
+
+        ::-webkit-scrollbar {
           width: 10px;
         }
         ::-webkit-scrollbar-thumb {
