@@ -55,8 +55,7 @@ export default class FileExplorerStore {
   }
 
   static get state() {
-    const { files, contents, assets } = this._subject.value;
-    return { files, contents, assets };
+    return this._subject.value;
   }
 
   static clearPersistStore() {

@@ -4,6 +4,7 @@ import AppFooter from '@layouts/AppFooter';
 import AppMain from '@layouts/AppMain';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { useShortcuts } from '@hooks';
+import renderSplashScreen from '@hoc/renderSplashScreen.hoc';
 
 const Layouts = () => {
   useShortcuts();
@@ -17,4 +18,4 @@ const Layouts = () => {
   );
 };
 
-export default Layouts;
+export default renderSplashScreen(Layouts);

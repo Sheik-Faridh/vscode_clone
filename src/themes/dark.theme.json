@@ -114,6 +114,9 @@
       "background": "#333333",
       "color": "rgba(255,255,255,0.4)",
       "hoverBg": "#696868"
+    },
+    "splashScreen": {
+      "background": "#000000"
     }
   }
 }

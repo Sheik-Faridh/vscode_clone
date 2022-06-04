@@ -13,6 +13,10 @@ const GlobalStyle = ({ mode }: GlobalStylesProps) => {
           ? 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.css'
           : 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.css'});
 
+        #root {
+          width: 100vw;
+          height: 100vh;
+        }
         ::-webkit-scrollbar {
           width: 10px;
         }
