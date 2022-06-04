@@ -12,7 +12,7 @@ export default ({ ...props }) => {
             width: 100%;
             height: 100%;
             & img.image-preview {
-                object-fit: contain; 
+                max-width: 30%;
             }
         }
         &.markdown-preview {
