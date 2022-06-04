@@ -22,7 +22,7 @@ const SplashScreen = () => {
         </Box>
       </Slide>
       <Fade in timeout={{ enter: 1500 }}>
-        <Typography variant="body2">VSCode</Typography>
+        <Typography variant="body2">Visual Studio Code</Typography>
       </Fade>
     </StyledPaper>
   );

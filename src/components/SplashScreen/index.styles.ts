@@ -24,7 +24,8 @@ export default ({ ...props }) => {
     & p.MuiTypography-root {
       font-size: 24px;
       color: ${mixins.contextMenu.fontColor.primary};
-      text-transform: uppercase;
+      text-transform: capitalize;
+      font-weight: 600;
     }
       `;
 };
