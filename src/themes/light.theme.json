@@ -1,5 +1,6 @@
 {
   "palette": {
+    "mode": "light",
     "common": {
       "white": "#ffffff",
       "black": "#000000"

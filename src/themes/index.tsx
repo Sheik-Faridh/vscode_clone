@@ -24,7 +24,7 @@ const ThemeWrapper: React.FC<Props> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <GlobalStyle />
+      <GlobalStyle mode={mode} />
       {children}
     </ThemeProvider>
   );

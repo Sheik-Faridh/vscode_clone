@@ -2,8 +2,18 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { Tree, FileData } from '@models';
 import GithubService from '@api/services/github.service';
 
-export const isImage = (name: string) => {
-  return /\.(gif|jpe?g|tiff?|png|webp|bmp|ico)$/i.test(name);
+export const previewFile = (name: string) => {
+  return /\.(gif|jpe?g|tiff?|png|webp|bmp|ico|md)$/i.test(name);
+};
+
+const isImage = (name: string) => /\.(gif|jpe?g|tiff?|png|webp|bmp|ico)$/i.test(name);
+
+export const getFileType = (name: string) => {
+  const image = isImage(name);
+  if (image) return 'image';
+  const isMarkdown = /\.(md)$/i.test(name);
+  if (isMarkdown) return 'markdown';
+  return null;
 };
 
 export const getFileList = (tree: Tree[]) => {
