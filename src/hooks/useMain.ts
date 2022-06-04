@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { useDefault } from '@hooks';
 import { SideBarStore, PanelStore } from '@store';
 import { PanelMode } from '@models';
 
@@ -7,6 +8,7 @@ const useMain = () => {
   const [panel, setPanel] = useState(PanelStore.state);
   const panelHeightRef = useRef<number>(0);
   const sideBarWidthRef = useRef<number>(20);
+  useDefault();
 
   useEffect(() => {
     const sidebarStore = SideBarStore.subject.subscribe((v) => {

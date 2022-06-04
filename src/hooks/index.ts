@@ -8,3 +8,4 @@ export { default as useShortcuts } from './useShortcuts';
 export { default as useBreadcrumb } from './useBreadcrumb';
 export { default as useTreeView } from './useTreeView';
 export { default as useSearch } from './useSearch';
+export { default as useDefault } from './useDefault';
