@@ -34,6 +34,9 @@ export default ({ ...props }) => {
         }
       }
       & .Vertical .__dbk__child-wrapper {
+        &:first-of-type {
+          max-height: calc(100% - 2px);
+        }
         &:last-child {
           z-index: 1;
         }

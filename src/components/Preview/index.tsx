@@ -14,20 +14,23 @@ type PreviewProps = {
   type: string;
 };
 
-const Markdown: FC<Pick<PreviewProps, 'content'>> = ({ content }) => (
-  <Box
-    className="markdown-preview markdown-body"
-    dangerouslySetInnerHTML={{ __html: domPurify.sanitize(marked.parse(content)) }}
-  />
-);
-
 const Preview: FC<PreviewProps> = ({ content, type }) => {
-  return (
-    <Container>
-      {type === 'image' && <img className="image-preview" src={content} />}
-      {type === 'markdown' && <Markdown content={content} />}
-    </Container>
-  );
+  if (type === 'image')
+    return (
+      <Container>
+        <Box>
+          <img className="image-preview" src={content} />
+        </Box>
+      </Container>
+    );
+  if (type === 'markdown')
+    return (
+      <Container
+        className="markdown-preview markdown-body"
+        dangerouslySetInnerHTML={{ __html: domPurify.sanitize(marked.parse(content)) }}
+      />
+    );
+  return null;
 };
 
 export default Preview;

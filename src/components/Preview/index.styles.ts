@@ -1,19 +1,21 @@
 export default ({ ...props }) => {
   const { palette } = props.theme;
   return `
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         height: 100%;
+        overflow-y: auto;
         background-color: ${palette.background.paper};
-        & img.image-preview {
-            object-fit: contain; 
-        }
-        & .markdown-preview {
+        & div.MuiBox-root {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             height: 100%;
-            overflow-y: auto;
+            & img.image-preview {
+                object-fit: contain; 
+            }
+        }
+        &.markdown-preview {
             padding: 20px 50px;
             background-color: ${palette.background.paper};
             & img {
