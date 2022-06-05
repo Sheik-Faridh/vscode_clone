@@ -1,6 +1,7 @@
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { Tree, FileData } from '@models';
 import GithubService from '@api/services/github.service';
+export { default as EditorIDB } from './idb';
 
 export const previewFile = (name: string) => {
   return /\.(gif|jpe?g|tiff?|png|webp|bmp|ico|md)$/i.test(name);

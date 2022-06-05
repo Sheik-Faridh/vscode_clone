@@ -61,6 +61,10 @@ export type FileExplorerState = {
   assets: Record<string, string>;
 };
 
+export interface FilesStorage extends Omit<FileExplorerState, 'isFetching'> {
+  timeStamp: number;
+}
+
 export type EditorState = {
   openFiles: string[];
   active: string;
