@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/Website-Netlify-blue)](https://vscodeclone.netlify.app/)
 
-A Visual Studio Code Clone app shows its own code :sunglasses: with the help of GitHub API. The application is bundled with the help of powerful plugin, **Webpack**. A CI/CD pipeline is setup with the GitHub Workflow for deploying the application on Netlify platform while pushing the code into main branch.
+A Visual Studio Code Clone app shows its own code :sunglasses: with the help of GitHub API. The application is bundled with the help of powerful plugin, **Webpack**. A CI/CD pipeline is setup with the GitHub Workflow for deploying the application on Netlify platform while pushing the code into main branch. All files are stored in the indexedDB due to the GitHub API rate limit constraints and update the records in the database based on certain interval.
 
 <p align="center">  <img width="50" height="40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207">&nbsp;&nbsp;&nbsp;<img width="40" height="50" src="https://raw.githubusercontent.com/webpack/media/master/logo/icon.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://mui.com/static/icons/180x180.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png"></p>
 
@@ -18,6 +18,8 @@ A Visual Studio Code Clone app shows its own code :sunglasses: with the help of 
 4. [RxJs](https://rxjs.dev/guide/overview)
 5. [Splitter](https://www.npmjs.com/package/@devbookhq/splitter)
 6. [React Icons](https://www.npmjs.com/package/react-icons)
+7. [Octokit](https://www.npmjs.com/package/octokit)
+8. [idb](https://www.npmjs.com/package/idb)
 
 # Feature
 
@@ -34,7 +36,7 @@ A Visual Studio Code Clone app shows its own code :sunglasses: with the help of 
 11. Added support for **Go to File** option
 12. Shows toolbar menu options
 13. Added support for breadcrumb path navigation
-14. Support for viewing the images
+14. Support for viewing the images and markdown files
 
 # Shortcuts
 
