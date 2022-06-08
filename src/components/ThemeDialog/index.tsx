@@ -70,7 +70,12 @@ const ThemeDialog = () => {
   return (
     <Dialog open maxWidth="md" hideBackdrop onClose={handleClose} className="topDialogContainer">
       <Container>
-        <TextField fullWidth placeholder="Select Color Theme" onChange={handleChange} autoFocus />
+        <TextField
+          fullWidth
+          placeholder="Select Color Theme (Up/Down Keys to see Preview)"
+          onChange={handleChange}
+          autoFocus
+        />
         <List>
           {fileteredTheme.map((t, i) => (
             <ListItem
