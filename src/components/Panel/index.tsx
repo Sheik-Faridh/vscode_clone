@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { styled } from '@mui/material/styles';
 import { VscClose, VscChevronUp, VscChevronDown } from 'react-icons/vsc';
 import Box from '@mui/material/Box';
@@ -11,6 +11,8 @@ import { PanelStore } from '@store';
 import { panelList } from '@utils/data/panel.data';
 import { PanelMode, PanelType } from '@models';
 import containerStyles from './index.styles';
+
+const Terminal = lazy(() => import('term/Terminal'));
 
 const Container = styled(Paper)`
   ${containerStyles}
@@ -68,6 +70,11 @@ const Panel = () => {
           </IconButton>
         </Box>
       </Box>
+      <div style={{ width: '100%', height: 'calc(100% - 50px)' }}>
+        <Suspense>
+          <Terminal />
+        </Suspense>
+      </div>
     </Container>
   );
 };

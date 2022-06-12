@@ -4,10 +4,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const { container } = require('webpack');
+
+const deps = require('./package.json').dependencies;
 
 const config = (env) => {
   return {
-    entry: './src/index.tsx',
+    entry: './src/index.ts',
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
     output: {
@@ -95,6 +98,17 @@ const config = (env) => {
         path: path.resolve(__dirname, '.env'),
         safe: true,
         systemvars: true,
+      }),
+      new container.ModuleFederationPlugin({
+        name: 'host',
+        filename: 'remoteEntry.js',
+        remotes: {
+          term: 'term@http://localhost:3001/remoteEntry.js',
+        },
+        shared: {
+          react: { singleton: true, requiredVersion: deps.react, eager: true },
+          'react-dom': { singleton: true, requiredVersion: deps['react-dom'], eager: true },
+        },
       }),
     ],
     optimization: {
