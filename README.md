@@ -8,6 +8,12 @@ A Visual Studio Code Clone app shows its own code :sunglasses: with the help of 
 
 <p align="center">  <img width="50" height="40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207">&nbsp;&nbsp;&nbsp;<img width="40" height="50" src="https://raw.githubusercontent.com/webpack/media/master/logo/icon.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://mui.com/static/icons/180x180.png">&nbsp;&nbsp;&nbsp;<img width="50" height="50" src="https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png"></p>
 
+<p align="center"><img src="https://miro.medium.com/max/1200/1*z6fvCk9Vk8t7oKkpQ82mKw.png" width="48%"></p>
+<p align="center"><img src="https://miro.medium.com/max/888/1*ZxlxSFAWOlhSOFOo9IjT6g.png" width="50%"> </p>
+
+1. VSCode Clone - **Host** app
+2. Terminal - **Remote** app _(built using [xterm.js](https://www.npmjs.com/package/xterm))_
+
 > **Note:** The application is not designed for responsiveness
 
 # Libraries Used
