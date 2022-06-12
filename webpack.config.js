@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 const { container } = require('webpack');
+require('dotenv').config();
 
 const deps = require('./package.json').dependencies;
 
@@ -103,7 +104,7 @@ const config = (env) => {
         name: 'host',
         filename: 'remoteEntry.js',
         remotes: {
-          term: 'term@http://localhost:3001/remoteEntry.js',
+          term: `term@${process.env.TERMINAL_REMOTE_URL}`,
         },
         shared: {
           react: { singleton: true, requiredVersion: deps.react, eager: true },

@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Tooltip from '@mui/material/Tooltip';
-import { PanelStore } from '@store';
+import { PanelStore, ThemeStore } from '@store';
 import { panelList } from '@utils/data/panel.data';
 import { PanelMode, PanelType } from '@models';
 import containerStyles from './index.styles';
@@ -21,14 +21,22 @@ const Container = styled(Paper)`
 const Panel = () => {
   const [value, setValue] = useState(PanelStore.state.type);
   const [mode, setMode] = useState(PanelStore.state.mode);
+  const [theme, setTheme] = useState(ThemeStore.state.mode);
 
   useEffect(() => {
-    const store = PanelStore.subject.subscribe((v) => {
+    const panelStore = PanelStore.subject.subscribe((v) => {
       setMode(v.mode);
       setValue(v.type);
     });
 
-    return () => store.unsubscribe();
+    const themeStore = ThemeStore.subject.subscribe((v) => {
+      setTheme(v.mode);
+    });
+
+    return () => {
+      panelStore.unsubscribe();
+      themeStore.unsubscribe();
+    };
   }, []);
 
   const handleChange = (active: PanelType) => () => {
@@ -70,11 +78,11 @@ const Panel = () => {
           </IconButton>
         </Box>
       </Box>
-      <div style={{ width: '100%', height: 'calc(100% - 50px)' }}>
+      <Box className="panel-content">
         <Suspense>
-          <Terminal />
+          <Terminal theme={theme} prefix="vscodeclone" />
         </Suspense>
-      </div>
+      </Box>
     </Container>
   );
 };

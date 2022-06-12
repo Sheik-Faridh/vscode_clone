@@ -26,5 +26,23 @@ export default ({ ...props }) => {
         }
       }
     }
+    & .panel-content {
+      width: 100%;
+      height: calc(100% - 48px);
+      padding-bottom: 15px;
+      
+      & #terminal {
+        height: 100%;
+
+        & .xterm {
+          height: 100%;
+          padding-left: 20px;
+
+          & .xterm-viewport {
+            overflow-y: auto;
+          }
+        }
+      }
+    }
     `;
 };

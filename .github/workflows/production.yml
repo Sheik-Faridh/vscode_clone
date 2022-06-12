@@ -12,6 +12,7 @@ env:
   OWNER: ${{ secrets.OWNER }}
   REPO: ${{ secrets.REPO }}
   REPO_BRANCH: ${{ secrets.REPO_BRANCH }}
+  TERMINAL_REMOTE_URL: ${{ secrets.TERMINAL_REMOTE_URL }}
 
 # Jobs to carry out
 jobs:

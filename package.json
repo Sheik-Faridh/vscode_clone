@@ -60,6 +60,7 @@
     "@mui/lab": "^5.0.0-alpha.82",
     "@mui/material": "^5.7.0",
     "dompurify": "^2.3.8",
+    "dotenv": "^8.6.0",
     "idb": "^7.0.1",
     "marked": "^4.0.16",
     "octokit": "^1.7.1",
