@@ -79,9 +79,11 @@ const Panel = () => {
         </Box>
       </Box>
       <Box className="panel-content">
-        <Suspense>
-          <Terminal theme={theme} prefix="vscodeclone" />
-        </Suspense>
+        {value === 'Terminal' && (
+          <Suspense>
+            <Terminal theme={theme} prefix="vscodeclone" />
+          </Suspense>
+        )}
       </Box>
     </Container>
   );
